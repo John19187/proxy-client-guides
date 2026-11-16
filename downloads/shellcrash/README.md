@@ -12,7 +12,7 @@ ShellCrash通过Linux或兼容路由器的SSH交互菜单管理代理内核和�
 
 ## ShellCrash 1.9.4固定归档与在线安装方式
 
-下表是 1.9.4 管理脚本归档；它不是固件，也不是可以上传到 LuCI 的 IPK／APK。下面的在线安装路线使用开发者 master 安装器，内容随master更新。
+下表是1.9.4管理脚本包，下面先按该归档安装并说明对应菜单。它不是固件，也不能作为IPK／APK上传到LuCI；在线安装器另列在后，安装到的脚本随源更新。
 
 | 支持环境 | 管理脚本归档 |
 |---|---|
@@ -28,74 +28,84 @@ ShellCrash 用脚本管理代理内核、配置及服务运行。设备要具备
 
 路由器先把固件配置备份下载到电脑，保存原 DNS、网关与代理分流值，保留有线管理电脑和可用 SSH 会话。普通 Linux 主机则保存当前配置，记下将改变的服务与网络设置。后续恢复靠这些具体入口，关闭终端窗口本身不会停止已经运行的服务。
 
-## 下载并运行安装脚本
+## 按固定1.9.4归档安装
 
-在设备的 SSH 会话先下载脚本。已有 curl 时使用：
+先通过SCP把上表的`ShellCrash.tar.gz`上传到目标设备的`/tmp`，保持文件名，不在电脑上解压。然后在设备的SSH会话执行自己环境对应的一组命令。
 
-~~~sh
-curl -fL https://raw.githubusercontent.com/juewuy/ShellCrash/master/install.sh -o /tmp/shellcrash-install.sh
-~~~
-
-只有 wget 时，改用这一条下载命令，不必两条都执行：
+**路由器或非标准Linux：**
 
 ~~~sh
-wget -O /tmp/shellcrash-install.sh https://raw.githubusercontent.com/juewuy/ShellCrash/master/install.sh
+mkdir -p /tmp/SC_tmp
+tar -zxf /tmp/ShellCrash.tar.gz -C /tmp/SC_tmp/
+source /tmp/SC_tmp/init.sh
 ~~~
 
-下载完成并确认是预期脚本后，路由器按项目 Shell 路线运行：
+**标准Linux：** 在具备安装权限的Shell中执行：
 
 ~~~sh
-sh /tmp/shellcrash-install.sh
+mkdir -p /tmp/SC_tmp
+tar -zxf /tmp/ShellCrash.tar.gz -C /tmp/SC_tmp/
+bash /tmp/SC_tmp/init.sh
+source /etc/profile
 ~~~
 
-标准 Linux 按项目路线使用 bash：
-
-~~~sh
-bash /tmp/shellcrash-install.sh
-~~~
-
-安装器询问目录及运行方式时，依据该设备的空间和支持条件选择。下载失败、文件是错误网页、依赖或启动机制报错时，先解决该错误，不继续运行不完整文件。
-
-[![2026年 ShellCrash 安装与使用教程：Linux、路由器导入配置及更新封面](../../assets/images/shellcrash-2026-guide-cover.webp)](../../assets/images/shellcrash-2026-guide-cover.webp)
-
-## 打开 crash 菜单
-
-安装完成，在当前会话加载环境后打开交互菜单：
+安装器会询问安装目录；选择本机可写、空间足够且重启后保留的目录，`/tmp`只是解包位置。安装成功后加载环境并打开菜单：
 
 ~~~sh
 . /etc/profile
 crash
 ~~~
 
-**找不到 crash 怎么办？** 先加载 profile 或重连 SSH，让安装器注册的命令进入当前会话，再看安装是否真正完成。命令可用后，`crash -h` 可以查看帮助，不用重复运行来历不明的安装器。
+找不到`crash`时，重连SSH后再试；仍找不到，回安装输出检查目录、权限和依赖错误。
 
-菜单编号会随版本变化，按当前显示的功能名称操作。ShellCrash 管理的是所选内核和配置，菜单出现只是管理入口准备完成。
+### 选择在线安装器时
+
+在线路线会下载源上的当前脚本，不能当成固定1.9.4。先下载开发者安装器：
+
+~~~sh
+curl -fL https://raw.githubusercontent.com/juewuy/ShellCrash/master/install.sh -o /tmp/shellcrash-install.sh
+~~~
+
+没有curl时可改用wget：
+
+~~~sh
+wget -O /tmp/shellcrash-install.sh https://raw.githubusercontent.com/juewuy/ShellCrash/master/install.sh
+~~~
+
+确认文件下载成功后，路由器用`sh /tmp/shellcrash-install.sh`，标准Linux用`bash /tmp/shellcrash-install.sh`。按实际版本显示的菜单操作；下文编号属于1.9.4归档版。
+
+[![ShellCrash管理脚本、内核与配置的使用主题](../../assets/images/shellcrash-2026-guide-cover.webp)](../../assets/images/shellcrash-2026-guide-cover.webp)
 
 <a id="import"></a>
 
 ## 按内核选择配置
 
-先在 crash 菜单选择内核，并按 CPU 下载对应文件。Mihomo 读取 Clash／Mihomo YAML，sing-box 读取与其版本匹配的 JSON；这些文件同时安排服务器与流量规则，单节点分享链接或服务 App 的账户不能直接替代。
+在1.9.4主菜单进入“9 更新与支持 → 2 切换内核文件”，核对显示的CPU架构，再选Mihomo或所需的sing-box分支；架构识别不对时用该页“9 手动指定处理器架构”。Mihomo 读取 Clash／Mihomo YAML，sing-box 读取与其版本匹配的 JSON；这些文件同时安排服务器与流量规则，单节点分享链接或服务 App 的账户不能直接替代。
 
 若还在选择接入方式，可先比较[VPN 服务自带 App 与通用客户端](https://github.com/John19187/The-40-Best-VPNs#翻墙客户端与使用方式怎么选)。决定在路由器或 Linux 使用完整配置后，再从[机场推荐帖的兼容条件](https://github.com/John19187/ji-chang-tui-jian#airport-clients)核对 YAML／JSON 格式及路由器使用限制；已有来源直接继续。
 
-内核准备好后，在 `crash` 交互菜单完成配置与启动：
+内核准备好后再添加配置：
 
-1. 选择配置导入功能。手里有远程地址时，填写本人完整配置 URL；只有本地文件时，选择本地导入方式并给出实际文件位置。
-2. 等待下载与解析结果。解析失败先记下字段错误，核对所选内核和配置版本；输入差异见[订阅与完整配置](../../subscription-formats.md#format-table)。
-3. 配置加载正常后，返回主菜单选择启动服务，再按下面的设备用途测试。
+1. 主菜单进入“6 管理配置文件 → 2 在线获取配置文件（基于订阅提供者）”，填写完整配置URL；若本机安装了账户登录扩展，该位置会显示“登录获取订阅”。
+2. 出现“确认导入配置文件？原配置文件将被备份”时，确认来源后输入`1`。下载或解析报错先处理URL、字段和内核版本，不继续启动。
+3. 本地完整配置改用“6 → 4 本地上传完整配置文件”：先把`.yaml`、`.yml`或名为`config.json`的文件上传到设备`/tmp`，再按检测提示载入。不要把“在线生成配置”当作普通私密订阅的默认导入，它可能经过第三方转换服务。
 
 <a id="connect"></a>
 
-## 测试实际设备
+## 先选接管范围，再启动
 
-路由器部署先让一台终端进入测试范围，用它访问目标网页和应用，同时保留有线管理及局域网可达。Linux 主机则按当前运行模式，用实际需要代理的本机应用访问目标。菜单的运行状态说明服务已启动，访问结果才回答本次用途是否完成。
+**路由器只试一台终端：**
 
-[![路由器网络诊断、终端网页访问与有线管理的关系](../../assets/images/router-and-device-check.webp)](../../assets/images/router-and-device-check.webp)
+1. 主菜单“2 功能设置 → 1 路由模式设置”，选择本机模块支持的路由模式。Redir接TCP，混合模式用Redir接TCP、TUN接UDP，Tproxy与TUN模式各有内核模块要求。
+2. 在路由模式页“7 设置路由劫持范围”选择“仅局域网”。
+3. 回功能设置，“3 透明路由流量过滤 → 2 过滤局域网设备”，切成白名单，按菜单添加测试终端的MAC或单个IP；列表应显示“仅列表内设备流量经过内核”。
+4. 回主菜单“1 启动/重启服务”，再用这台终端打开目标网页和应用，保留有线管理入口。
 
-这是检查关系说明图。LuCI 网络诊断只对应具备该后台的路由器；普通 Linux 仍通过 SSH 管理，并在本机应用验证用途。
+**Linux只让一个本机应用使用：** 在路由劫持范围选择“4 不配置流量劫持（纯净模式）”。到“功能设置 → 6 自定义端口及秘钥”查看Http／Sock5端口，再把该应用的HTTP或SOCKS代理指向本机监听地址和这个实际端口。此模式不会自动接管所有应用。
 
-服务运行而终端不通，先看接管范围、规则与防火墙，再看目标连接错误。多个节点只在同一网络失败时，检查该网络的认证和网关，核对本家公告；根据日志定位后，每次只调整对应的一项设置。
+[![路由器后台诊断与终端访问检查的是不同设备](../../assets/images/router-and-device-check.webp)](../../assets/images/router-and-device-check.webp)
+
+模式或范围改动后，需要从主菜单重启服务才生效。终端不通时先看名单、规则和实际错误；多个节点只在同一网络失败，再检查认证、网关及服务商首页的故障通知。
 
 <a id="update"></a>
 
@@ -103,14 +113,12 @@ crash
 
 服务调整线路时刷新原配置；协议或配置字段兼容变化时处理内核；管理与安装功能变化时才更新 ShellCrash 脚本。更新前保留现有配置和设置，让旧版本与新版本之间有可恢复的资料。
 
-内核和配置匹配、实际应用完成访问后，日常可以继续使用这组文件。只更新发生变化的对象，更容易理解更新改变了什么，也便于需要时退回。
-
 <a id="troubleshooting"></a>
 
 ## 从 crash 停止服务并恢复网络
 
-1. 从保留的 SSH 会话运行 `crash`，在交互菜单选择停止服务。
-2. 新配置出错时，通过配置导入功能换回已保存的原配置；改过 DNS、路由或分流时，只撤回本次新增的对应设置。
+1. 从保留的 SSH 会话运行 `crash`，选择“3 停止服务”。
+2. 新配置出错时，通过“6 管理配置文件 → 8”还原已有的配置备份，按提示重启；改过 DNS、路由或分流时，只撤回本次新增的对应设置。
 3. 确认普通联网和原管理入口恢复，再决定是否继续处理具体错误。
 
 停止服务不需要先删除安装目录。关闭终端窗口也不会代替停止服务。
@@ -170,7 +178,7 @@ crash
 | [Surge](../surge/README.md) | iOS／macOS | 按平台配置与接管流量 |
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -185,7 +193,7 @@ crash
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

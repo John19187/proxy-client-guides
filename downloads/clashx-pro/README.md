@@ -35,8 +35,6 @@ ClashX Pro开过增强模式时，迁移前先保存配置，再关闭增强模�
 
 ![保留资料、停止旧接管后再导入新客户端的顺序](../../assets/images/legacy-migration-flow.webp)
 
-先分别关闭增强模式与系统代理，再从菜单栏退出旧程序。
-
 <a id="troubleshooting"></a>
 
 ### 退出后普通网页仍打不开
@@ -73,15 +71,15 @@ Pro还能打开，回原菜单确认增强模式与系统代理已关闭，再�
 1. 打开“订阅”，粘贴个人URL，点击“导入”。
 2. 点选新配置卡片，再到“代理”展开组、选择服务器，见[Rev订阅与节点图文](../clash-verge-rev/README.md#import)。
 
-只有本地文件的，按目标教程的文件导入入口处理。出现下载或解析错误，可看[订阅格式与导入错误](../../subscription-formats.md#import-errors)，保留具体错误和原配置。
+只有本地YAML文件时，可选择[Rev本地配置导入](../clash-verge-rev/README.md#local-file)。出现下载或解析错误，可看[订阅格式与导入错误](../../subscription-formats.md#import-errors)，保留具体错误和原配置。
 
 <a id="connect"></a>
 
 在所选新软件开启系统代理，用浏览器完成目标访问。默认配置能用以后，再加入必要的自写规则。接管流量的方式按新客户端自身选项重新设置。
 
-浏览器能用而某个应用不跟随，按新软件实际支持的方式继续；Rev读者可看[系统代理与TUN接管专题](../../clash-verge-rev-network.md)。TUN按新客户端实际提供的菜单和选项设置。
+浏览器能用而某个应用不跟随，Rev用户可看[系统代理与TUN接管专题](../../clash-verge-rev-network.md)；Meta用户可看[连接与Tun设置](../clashx-meta/README.md#connect)。
 
-普通联网正常，但新旧软件单独运行均出现多个节点故障时，先核对账户、流量和本家公告，再用同一节点换自己的热点比较；增强模式残留仍按本篇的系统设置检查。
+普通联网正常，但新旧软件单独运行均出现多个节点故障时，先核对账户、流量和你所用服务商的首页公告，再用同一节点换自己的热点比较；增强模式残留仍按本篇的系统设置检查。
 
 <a id="update"></a>
 
@@ -96,7 +94,6 @@ Pro还能打开，回原菜单确认增强模式与系统代理已关闭，再�
 <details>
 <summary>迁移与恢复资料</summary>
 
-- 界面与版本说明：更新于2026-10-24，本地观察于2026-11-07；用于确认Pro身份、托管配置、系统代理与增强模式的独立操作。
 - [ClashX Meta项目](https://github.com/MetaCubeX/ClashX.Meta)
 - [Clash Verge Rev项目](https://github.com/clash-verge-rev/clash-verge-rev)、[安装说明](https://www.clashverge.dev/install.html)
 - 旧Pro最后维护日期未确认，不套用普通ClashX版号；封面和迁移顺序图为本仓整理说明图。
@@ -146,7 +143,7 @@ Pro还能打开，回原菜单确认增强模式与系统代理已关闭，再�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -160,7 +157,7 @@ Pro还能打开，回原菜单确认增强模式与系统代理已关闭，再�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

@@ -33,7 +33,7 @@ OpenClash 由 LuCI 管理插件、运行内核和系统依赖配合工作。下�
 
 ## 安装依赖与 CPU 内核
 
-界面插件提供后台菜单，Mihomo 内核实际处理连接，系统依赖则提供脚本、下载、证书、DNS 和透明代理所需能力。项目依赖涉及 bash、curl、ca-bundle、ruby、ruby-yaml、dnsmasq-full 等，防火墙组件按当前固件选择；不能混装两套防火墙，也不能为补依赖直接删掉仍承担 DHCP／DNS 的组件。
+界面插件提供后台菜单，Mihomo 内核实际处理连接，系统依赖则提供脚本、下载、证书、DNS 和透明代理所需能力。v0.48.002的基础依赖包括dnsmasq-full、bash、curl、ca-bundle、ip-full、ruby、ruby-yaml、kmod-tun和unzip。Firewall4固件使用对应的nftables组件，旧iptables固件使用iptables分支；让匹配固件的软件源处理依赖，不混装两组。遇到dnsmasq冲突时先查固件安装说明，保留正在承担DHCP／DNS的组件。
 
 1. 进入“系统 → 软件包”，从匹配固件的软件源准备缺少的依赖。
 2. 使用“上传软件包”安装选定的插件，阅读安装结果；依赖报错先按固件分支解决。
@@ -41,7 +41,8 @@ OpenClash 由 LuCI 管理插件、运行内核和系统依赖配合工作。下�
 
 这是使用 opkg 的 ImmortalWrt 软件包页：先看上方剩余空间，再从“上传软件包”选择电脑里下载的 IPK。使用 apk 的固件按它自己的软件包入口操作。
 
-3. 刷新或重新登录LuCI，进入“服务 → OpenClash”，按设备CPU下载并安装对应内核。
+3. 刷新或重新登录LuCI，进入“服务 → OpenClash → 插件设置 → 版本更新”。对照页面显示的处理器架构，在“编译版本”选择对应项；例如x86-64可从基础的`linux-amd64-v1`选择，v2／v3还要求CPU指令集支持。
+4. 选好内核版本，点击下载源表格“内核”列的版本链接安装，等日志结束、已安装版本更新。整条下载源的一键更新还可能更新插件，与单独安装内核不同。
 
 装完没有 OpenClash 菜单，先回安装结果核对插件与依赖；提示缺内核时再看 CPU、存储与路由器下载。在路由器上检查实际下载到的文件与错误信息。
 
@@ -53,8 +54,7 @@ OpenClash 需要 Clash／Mihomo 兼容的完整 YAML 配置，其中可以同时
 
 1. 打开“服务 → OpenClash → 配置订阅”，添加记录，填入可辨认名称与本人完整 URL。
 2. 保存记录，再执行该订阅的更新。过滤、转换和 User-Agent 仅在本人的服务明确要求时填写，不照抄其他服务参数。
-3. 到“配置管理”找到刚下载的文件，切换到这份配置，再回运行状态页启动 OpenClash。
-4. 在配置提供的面板或策略组选择实际服务器，保留直连及自动组的原意。
+3. 到“配置管理”找到刚下载的文件并选用它，暂不启动，先设置下面的单终端接管范围。
 
 本地 YAML 可在配置管理上传并选择，但不会因此得到远程更新源；只有一条节点分享链接时，应先取得完整配置，区别见[格式对照](../../subscription-formats.md#format-table)。下载有结果却仍是旧节点，先看活动配置；解析失败则保留字段错误，核对内核与文件兼容性。
 
@@ -62,15 +62,21 @@ OpenClash 需要 Clash／Mihomo 兼容的完整 YAML 配置，其中可以同时
 
 <a id="connect"></a>
 
-## 用一台设备验证连接
+## 首次启动前，只让一台局域网设备使用代理
 
-先打开 OpenClash 的访问控制，按现有规则让一台测试终端进入接管范围；用它打开目标网页和实际应用，并确认有线管理电脑仍能访问 LuCI。终端的访问结果决定这条路线是否完成；后台显示运行、路由器有 Ping 响应都不能代替它。
+以下按v0.48.002设置局域网白名单；路由器自身是否使用代理是另一项设置。
+
+1. 在DHCP租约或终端网络信息里取得测试设备的IP或MAC，保留有线管理电脑在名单外。
+2. 使用Fake-IP时，先打开“插件设置 → DNS设置”，记下原值，把“本地 DNS 劫持”改为“使用防火墙转发”，再设置客户端访问控制。Redir-Host用户不必为此改DNS模式。
+3. 打开“插件设置 → 黑白名单”，“局域网访问控制模式”选“白名单模式”，在“走代理的局域网设备 IP”或“走代理的局域网设备 Mac”只添加这台设备。
+4. 点“保存配置”保存设置。该按钮只保存；“应用配置”会启用并重启插件。
+5. 内核、活动配置与名单准备好后，点“应用配置”首次启动。再打开配置提供的面板，在手动策略组选择实际服务器，保留直连及自动组的用途。用名单里的终端打开目标网页和应用，同时确认管理电脑仍能访问LuCI。
 
 [![路由器网络诊断、终端网页访问与有线管理的关系](../../assets/images/router-and-device-check.webp)](../../assets/images/router-and-device-check.webp)
 
 说明图上半是路由器自身网络诊断，下半是测试终端的目标访问，二者处理不同设备上的问题。修改 DNS 前保留原值，有助于只撤回这次部署的设置。
 
-服务运行而终端仍直连，先看该设备是否在接管范围、实际命中了哪条规则和策略。目标访问失败可先换当前配置的节点，再换网络比较，按[连接症状表](../../README.md#symptom-table)排查。多个节点只在同一网络失败时，继续检查该网络的认证、网关与DNS，并核对本家公告的故障范围。
+服务运行而终端仍直连，先看该设备是否在接管范围、实际命中了哪条规则和策略。目标访问失败可先换当前配置的节点，再换网络比较，按[连接症状表](../../README.md#symptom-table)排查。多个节点只在同一网络失败时，继续检查该网络的认证、网关与DNS，并核对你所用服务商的首页公告的故障范围。
 
 <a id="update"></a>
 
@@ -78,7 +84,7 @@ OpenClash 需要 Clash／Mihomo 兼容的完整 YAML 配置，其中可以同时
 
 服务改节点，更新原订阅配置；协议或字段兼容发生变化，核对 Mihomo 内核；后台管理功能变化，再升级插件。远程文件中的本地修改先另存副本，插件升级前保存设置、停止服务，再安装匹配固件的正式包。
 
-一台终端完成用途后，再按需要扩大接管范围。保留稳定配置及恢复入口，以后只更新发生变化的部分即可。
+单终端试用完成后，可在同一白名单加入其他确需代理的设备。
 
 原来用PassWall、准备切换到OpenClash的人，先按[PassWall停止与保存设置](../passwall/README.md#troubleshooting)停旧接管，再从服务取得完整Clash／Mihomo配置；PassWall节点列表不能代替整份配置。为电脑或手机选软件，可看[2026年机场通用客户端汇总与下载教程](../../README.md#choose)。
 
@@ -96,7 +102,7 @@ OpenClash 需要 Clash／Mihomo 兼容的完整 YAML 配置，其中可以同时
 - [OpenClash 原仓、依赖与安装说明](https://github.com/vernesong/OpenClash)
 - [v0.48.002 固定插件版本](https://github.com/vernesong/OpenClash/releases/tag/v0.48.002)
 - [维护者订阅与配置管理手册](https://github.com/vernesong/OpenClash/blob/dev/.github/skills/openclash-user-guide/12-subscribe-config.md)
-- 已接收的[OpenClash历史教程](https://bbxy.buzz/user/help/view/6/11)观察于2026-11-04，23张历史配图尚未取得，不把缺图当作当前安装界面。本文软件包入口采用固定v0.48.002发行资料，安装示例图保ImmortalWrt／opkg范围。
+- [OpenClash历史教程](https://bbxy.buzz/user/help/view/6/11)；安装示例图为ImmortalWrt／opkg界面。
 
 版本、商店要求和引用材料的整理日期：2026-11-14。
 
@@ -144,7 +150,7 @@ OpenClash 需要 Clash／Mihomo 兼容的完整 YAML 配置，其中可以同时
 | [Surge](../surge/README.md) | iOS／macOS | 按平台配置与接管流量 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -159,7 +165,7 @@ OpenClash 需要 Clash／Mihomo 兼容的完整 YAML 配置，其中可以同时
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

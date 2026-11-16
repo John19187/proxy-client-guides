@@ -50,8 +50,8 @@ TUN 会改变本机流量的接管方式。开始前记下当前系统代理和�
 
 ### Windows：安装所需服务，再开虚拟网卡
 
-1. 打开 Rev“设置”，查看服务模式。需要安装时，使用软件提供的安装入口，完成 Windows 管理员授权；服务已运行则继续。
-2. 开启“虚拟网卡模式／TUN”。为便于分清这次变化，可以先关闭本次开启的系统代理，再切到 TUN；两者的原状都已在上面记下。
+1. 在Rev“设置”开启“TUN模式”。若弹出“TUN模式需要系统服务”，点“安装服务”，允许本次Windows管理员请求。安装完成后，软件会重启内核并继续开启TUN；若安装报错，先处理服务错误。
+2. 确认TUN开关已开启。为了比较接管变化，可以先关闭本次开启的系统代理，再试TUN；两者原状都应事先记下。
 3. 重新打开原来失败的应用，执行同一个功能。需要查看去向时，在“连接”页找它的新请求。
 
 应用恢复以后，继续使用原有规则和节点。若同时出现新的普通网络或局域网故障，关闭本次 TUN，恢复之前可用的系统代理设置；有线局域网、打印机或路由器后台的访问也属于原来的使用范围，不能用一个网页能打开代替这些需求。
@@ -92,9 +92,7 @@ Mac也应先在客户端关闭接管。程序无法运行时，打开“系统�
 
 ### 换热点能用，校园网或家中Wi-Fi不通怎么办
 
-校园网需要网页认证时，先完成网络登录。换到热点能用，说明两条网络表现不同；继续按学校要求核对DNS、网关和认证状态。多个节点在原网络同时失败时，记录发生时间和网络，查看本家公告是否列出相同范围的故障。涉及Mihomo DNS覆写时，用[校园网与DNS说明](README.md#campus-dns)定位本次改变的位置，不同时重置系统、路由器和配置文件。
-
-确需比较其他服务，可在[多家VPN推荐与推广](https://github.com/John19187/The-40-Best-VPNs#翻墙客户端与使用方式怎么选)看独立App和设备覆盖，再到[多家机场推荐与推广](https://github.com/John19187/ji-chang-tui-jian#airport-clients)比较Clash／Mihomo订阅与套餐。已有服务先按错误处理。
+校园网需要网页认证时，先完成网络登录。换到热点能用，说明两条网络表现不同；继续按学校要求核对DNS、网关和认证状态。多个节点在原网络同时失败时，记录发生时间和网络，查看你所用服务商的首页公告是否列出相同范围的故障。涉及Mihomo DNS覆写时，用[校园网与DNS说明](README.md#campus-dns)定位本次改变的位置，不同时重置系统、路由器和配置文件。
 
 需要提供错误时，写清 Rev 与系统版本、失败应用、当前接管方式，以及那次请求对应的错误。比如“系统代理下浏览器正常，TUN下应用恢复，但打印机失联”，能直接指出改变后影响了什么。分享前遮住订阅、账号、IP 身份与日志中的访问凭据。
 
@@ -155,7 +153,7 @@ Mac也应先在客户端关闭接管。程序无法运行时，打开“系统�
 | [OpenClash](downloads/openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](downloads/passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](downloads/shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](downloads/provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](downloads/provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](downloads/cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](downloads/cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](downloads/clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -170,7 +168,7 @@ Mac也应先在客户端关闭接管。程序无法运行时，打开“系统�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

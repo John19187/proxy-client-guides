@@ -4,9 +4,9 @@
 
 <a id="2026年-hiddify下载与使用教程添加订阅连接网络和切换节点"></a>
 
-Hiddify安装后，在首页点“+”，从Clipboard添加自己的兼容订阅；选中配置，再点中央连接按钮。手机允许系统VPN请求，电脑按要使用的应用选择VPN模式或系统代理，最后用目标网页或应用确认访问。
+安装好Hiddify后，在首页点“+”，选Clipboard导入已复制的兼容订阅链接。然后选中这份配置，点中央连接按钮。手机首次连接要允许VPN请求；电脑可以选择系统代理或VPN模式，下面分别说明。
 
-已有安装程序可直接看[添加订阅](#import)。下面保留v5.5.5固定下载入口；操作图片来自官方手册的5.5.6英文手机界面，布局可能与电脑和其他版本不同。
+已经装好软件，可以直接看[添加订阅](#import)。下载表提供v5.5.5安装包；操作图采用官方手册的5.5.6英文手机版，电脑布局有所不同。
 
 ![Hiddify电脑手机选包、添加配置与连接教程](../../assets/images/hiddify-2026-guide-cover.webp)
 
@@ -16,7 +16,7 @@ Hiddify安装后，在首页点“+”，从Clipboard添加自己的兼容订阅
 
 ## Hiddify v5.5.5下载与安装
 
-下表保留Hiddify **v5.5.5**的正式发行文件，整理日期为2026年11月14日。iPhone／iPad从[Hiddify Proxy & VPN商店条目](https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532?uo=4)安装；本次记录的提供方为Holistic Resilience，系统要求为iOS 15.5或更高。
+下表保留Hiddify **v5.5.5**的正式发行文件，整理日期为2026年11月14日。iPhone／iPad从[Hiddify Proxy & VPN商店条目](https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532?uo=4)安装；商店提供方为Holistic Resilience，系统要求为iOS 15.5或更高。
 
 | 设备／CPU | 安装包直接下载 |
 |---|---|
@@ -41,16 +41,16 @@ Android按处理器架构选包；不知道架构时可选Universal。表中没�
 
 ## 在首页添加自己的订阅
 
-从自己的服务账户复制供Hiddify使用的完整订阅。后台没有这个选项，查看其客户端说明或向服务支持确认；本次官方手册要求订阅地址以HTTPS开头，不要自行改前缀。个人链接可能带认证信息，不公开URL、二维码或含它们的截图。
+登录自己的服务账户，复制标为Hiddify或明确支持Hiddify的完整订阅链接。这里使用HTTPS地址；后台没有兼容入口时，先向客服询问，不要自己改链接前缀。订阅链接通常含个人凭据，截图时遮住地址和二维码。
 
 1. 复制兼容订阅，打开Hiddify首页（Home），点顶部“+”。
 2. 在底部“Add profile”面板点**Clipboard**，等待新配置出现在首页顶部。
 
    ![Hiddify添加配置面板的Clipboard与Manually入口](../../assets/images/hiddify-add-profile.webp)
 
-   左侧Clipboard读取已经复制的地址，右侧Manually用于手动填写。图中其他入口不必为导入普通订阅逐一使用。
+   Clipboard会读取剪贴板里的地址。需要自己填写名称时，改用右侧的Manually。
 
-首页出现配置说明添加已有结果；一份配置可包含多个服务器，下一节还要选中它并连接。
+首页顶部出现新配置后，继续[选中配置并连接](#connect)。一份配置里可以包含多个节点。
 
 ### 要自己命名时，用Manually填写
 
@@ -59,7 +59,7 @@ Android按处理器架构选包；不知道架构时可选Universal。表中没�
 
    ![Hiddify手动配置：Name、URL和Add按钮](../../assets/images/hiddify-manual-profile.webp)
 
-   ①是本机名称，②决定下载来源，③保存。名称无需等于服务品牌；“Turn off auto update”控制订阅自动更新，不是连接开关，首次可保持默认。
+   ①填一个自己能认出的名称，②填订阅地址，③保存。“Turn off auto update”用于关闭订阅自动更新，首次添加时保持默认即可。
 
 <a id="troubleshooting"></a>
 
@@ -71,7 +71,7 @@ Android按处理器架构选包；不知道架构时可选Universal。表中没�
 
 ## 选中配置，在当前设备连接
 
-点首页顶部配置卡，在列表选刚添加的名称。这是选择整份订阅，其中一台服务器在连接后的Proxies页选择。
+点首页顶部的配置卡，在列表中选刚添加的名称。连接后，可以在Proxies页选择这份订阅里的具体节点。
 
 ### Android、iPhone和iPad
 
@@ -79,7 +79,7 @@ Android按处理器架构选包；不知道架构时可选Universal。表中没�
 2. 系统首次请求VPN权限，确认来自Hiddify再允许。Android可能先询问通知权限；iPhone／iPad按系统要求完成设备验证。
 3. 中央按钮显示**Connected**后，打开实际需要的网站或应用，完成访问。
 
-VPN请求允许Hiddify处理设备流量，不是另购服务的提示。Connected与延迟只说明客户端状态和测试结果，访问任务完成才说明这次连接可用。
+能打开需要的网站或应用，就可以继续使用。一直显示Connecting，或显示Connected后仍打不开网站，按下方的[连接失败处理](#连接失败时先查当前配置和节点)排查。
 
 ### Windows、Mac和Linux
 
@@ -104,9 +104,13 @@ VPN请求允许Hiddify处理设备流量，不是另购服务的提示。Connect
 
 连接后，点中央按钮下方显示代理名称的卡片，打开**Proxies**，再点需要的服务器。**Auto**是自动选择组，不是一台服务器；选择后回到目标应用查看结果。
 
-想换整份订阅，用首页顶部配置卡；只换这份订阅里的服务器，用Proxies页。日常换节点无需重复添加同一个URL。
+换服务或换整份订阅，点首页顶部配置卡；只换当前订阅里的节点，进Proxies页选择。
 
-**一直Connecting或节点连接失败：**先核对首页当前配置，再尝试同一订阅另一节点，或按下节更新列表。手机没有建立VPN，检查系统连接请求是否允许、是否仍有另一VPN占用。多台服务器都失败，再查账户流量、有效期及本家公告；保留同一配置，在Wi-Fi和自己的移动网络间作一次对照。
+### 连接失败时，先查当前配置和节点
+
+首页选错配置时，先切到刚导入的那份。配置正确但节点连不上，换同一订阅里的另一个节点，或按下一节更新节点列表。
+
+手机没有建立VPN连接，检查首次权限请求是否已允许，并断开另一款正在运行的VPN。多个节点都失败，再看账户是否到期、流量是否用完，以及服务公告有没有故障说明。还需要区分网络问题时，保留同一配置，分别用Wi-Fi和自己的手机流量连接同一节点。
 
 <a id="update"></a>
 
@@ -114,7 +118,7 @@ VPN请求允许Hiddify处理设备流量，不是另购服务的提示。Connect
 
 服务修改节点后，点首页配置卡左侧的**双箭头更新按钮**，从保存的URL下载新列表。顶部配置卡打开配置列表；某份配置左侧的三个点可管理、编辑或分享它。分享可能带出个人订阅或二维码，只传给自己控制的设备。
 
-旧节点能用但更新失败，先保留配置，查看下载条件和错误，不急着删除。“更新订阅”只更新服务内容，软件版本仍通过原分发渠道升级。
+旧节点还能用、只是更新失败时，先保留它，再检查下载错误和服务是否限制了订阅下载时间。更新订阅会重新获取节点；升级Hiddify则从原安装渠道下载新版软件。
 
 升级前保存个人订阅及本地改动，记下服务模式；断开、完全退出后安装同渠道版本。遇到签名冲突先保数据，不直接卸载。
 
@@ -173,7 +177,7 @@ VPN请求允许Hiddify处理设备流量，不是另购服务的提示。Connect
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -188,7 +192,7 @@ VPN请求允许Hiddify处理设备流量，不是另购服务的提示。Connect
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

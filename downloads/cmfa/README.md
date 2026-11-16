@@ -49,6 +49,16 @@ Clash Meta for Android（简称CMFA）装好后，需要导入已有服务商提
 
 配置卡片出现只表示文件已下载，圆点选中后才会使用它。保存了多份配置时，也在这里切换；切换配置会改变后续可选节点、代理组和规则。
 
+<a id="local-file"></a>
+
+### 只有本地YAML文件时
+
+1. 打开“配置”，点“+ → 文件”，填写名称，再点“浏览文件”。
+2. 在文件列表找到`config.yaml`，点右侧“⋮ → 导入”，从系统文件选择器选中已保存的YAML。
+3. 返回配置属性页，点右上角软盘保存；回配置列表点左侧圆点激活这份文件。
+
+本地文件不会自动取得服务的新节点。之后需要更新时，重新取得兼容文件，或改用服务提供的订阅URL。
+
 **下载失败或返回401／403**，先查看完整错误，再回服务后台检查账号状态、订阅下载开关和个人URL是否完整。**出现配置解析错误**，重新取得Clash／Mihomo兼容格式，保留报错中的字段和原文；配置用到当前内核不支持的字段时，需要服务方提供兼容配置或匹配的软件版本。地址类型与错误说明可看[订阅格式与导入错误](../../subscription-formats.md#import-errors)。已有配置仍能用时保留它，不必先删除。
 
 还没有服务时，可比较[多家VPN推荐与推广中的客户端和设备支持](https://github.com/John19187/The-40-Best-VPNs#翻墙客户端与使用方式怎么选)，或[多家机场推荐与推广中的套餐、流量和Clash订阅支持](https://github.com/John19187/ji-chang-tui-jian#airport-clients)。这两篇包含推广，部分服务有自有App；选择时核对服务是否提供通用订阅，已有兼容地址的人直接继续即可。
@@ -74,11 +84,11 @@ Clash Meta for Android（简称CMFA）装好后，需要导入已有服务商提
 
 4. 用浏览器打开你实际需要的网站，再试需要使用的应用。网站和应用能够完成原来的访问任务，即可按当前配置继续使用。
 
-“运行中”表示VPN服务已启动，接着选服务器并访问目标网页。代理组用于组织节点，“规则”模式按订阅中的规则分流；不要把“全局”当成首次连接必须切换的模式。图中的“全球直连”“漏网之鱼”也是该配置自己的分组，其他服务可能采用不同名称。
+“规则”模式按订阅中的规则分流，首次连接通常保持它即可。“全球直连”“漏网之鱼”是图中配置的分组名，其他服务可能采用不同名称。
 
 **节点有延迟，网页仍失败**，先在当前手动组中换另一个实际节点；仍失败时，保留错误并切换Wi-Fi／移动网络比较，按[连接症状与处理](../../README.md#symptom-table)继续判断。代理页为空或仍显示旧节点，先回“配置”检查当前选中项，再确认下载的是完整兼容配置。
 
-如果原来能用，后来多个节点同时失败，先查看服务账户、剩余流量和本家公告，核对发生时间及受影响网络，再保留配置换自己的热点作对照。
+如果原来能用，后来多个节点同时失败，先查看服务账户、剩余流量和你所用服务商的首页公告，核对发生时间及受影响网络，再保留配置换自己的热点作对照。
 
 要断开，回首页点击“运行中”卡片。需要换回原来的配置时，先停止连接，在“配置”中选择原文件，再回首页启动。
 
@@ -104,16 +114,13 @@ Clash Meta for Android（简称CMFA）装好后，需要导入已有服务商提
 
 给Windows、Mac或Linux电脑使用同一服务时，可以按[Clash Verge Rev下载与配置教程](../clash-verge-rev/README.md)在电脑端重新导入兼容订阅；能否同时使用仍取决于服务的设备和并发条件。要为其他设备选软件，查看[2026年机场通用客户端汇总与下载教程](../../README.md)，其中按平台提供独立教程入口。另选Android客户端后，也先完成目标软件的导入和连接，再整理旧App。
 
-完成首次配置后，日常在“代理”里换节点，服务调整内容时在“配置”里更新。不需要继续使用时，在首页停止VPN服务即可。
-
 <details>
 <summary>官方资料与图片来源</summary>
 
 - [MetaCubeX/ClashMetaForAndroid项目](https://github.com/MetaCubeX/ClashMetaForAndroid)与[系统要求](https://github.com/MetaCubeX/ClashMetaForAndroid#requirement)：产品身份、最低Android 5.0和推荐Android 7.0。
 - [v2.11.37发行记录](https://github.com/MetaCubeX/ClashMetaForAndroid/releases/tag/v2.11.37)：本页五种APK的固定下载来源。
 - 界面与版本说明：URL导入、选择配置、启动与节点选择原图，原始观察时间为2026年11月7日。原教程下载版本为v2.11.21，截图未显示版本号。服务专属的订阅中心、开关及策略组名称仅在对应条件下适用。
-- 历史安装图中的“ClashX.app”来自Pro界面，不能作为普通ClashX或Meta的操作图。
-- [极客云Android使用教程](https://jkbest001.net/user/tutorial?os=android&client=flclash)：配置圆点、更多菜单及“更新”的原图和操作说明，原始观察时间为2026年11月6日。原地址参数含flclash，所用截图中的控件与本文相符，按图中界面使用；订阅转换器不是本页的通用处理步骤。
+- [极客云Android使用教程](https://jkbest001.net/user/tutorial?os=android&client=flclash)：所配CMFA界面的配置圆点、更多菜单及“更新”操作图；页面取得于2026年11月6日。
 - 截图中的第三方商标归各自权利方；原图保留在项目素材记录，本文使用教程整理展示副本。特色图为本仓库制作。
 
 </details>
@@ -160,7 +167,7 @@ Clash Meta for Android（简称CMFA）装好后，需要导入已有服务商提
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -175,7 +182,7 @@ Clash Meta for Android（简称CMFA）装好后，需要导入已有服务商提
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

@@ -19,7 +19,7 @@ URL决定以后从哪里取得新配置；本地YAML保存当前内容；覆写�
 
 1. 在旧软件记下当前配置名称和所用服务器，从个人服务账户保留原订阅URL。
 2. 使用本地YAML时，复制实际文件；另存DNS、规则、脚本和本机端口等修改。
-3. 从旧程序的数据目录入口定位资料，复制完整目录。程序已打不开，就先保全手上原目录，再安装Rev。
+3. v1.3.8进入“设置 → Verge设置 → 应用目录”，点右侧箭头打开真实数据位置。退出旧程序后复制整个目录，包括`profiles.yaml`、`profiles/`、`config.yaml`和`verge.yaml`。通常在`~/.config/clash-verge`，Windows便携模式也可能在程序旁的`.config/clash-verge`；优先用菜单定位。程序已打不开时，先保存仍在手上的原目录。
 
 文件和个人URL留在自己控制的位置。账户有效并提供Mihomo兼容订阅时，可以继续使用；地址返回登录页、401／403或解析错误，先按[下载与配置错误的区别](../../subscription-formats.md#import-errors)处理。
 
@@ -37,7 +37,7 @@ Windows的x64／ARM64是CPU选择，`fixed_webview2`用于相应界面运行环�
 
 ## 在Rev导入订阅，先使用默认配置
 
-1. 打开Rev左侧“订阅”，在“订阅文件链接”粘贴个人Mihomo兼容URL，点击“导入”。只有本地YAML时，按[Rev配置导入说明](../clash-verge-rev/README.md#import)使用文件入口。
+1. 打开Rev左侧“订阅”，在“订阅文件链接”粘贴个人Mihomo兼容URL，点击“导入”。只有本地YAML时，按[Rev配置导入说明](../clash-verge-rev/README.md#local-file)导入本地YAML。
 2. 等新卡片出现，点选它，到“代理”展开策略组并选择节点。
 3. 在“设置”开启“系统代理”，用浏览器打开实际需要的网站。
 
@@ -47,7 +47,13 @@ Windows的x64／ARM64是CPU选择，`fixed_webview2`用于相应界面运行环�
 
 ## 网页能用以后，再迁覆写和规则
 
-默认配置已经能完成访问，就可以把自己的DNS、规则或脚本按Rev支持的方式迁入。不要把旧目录整份覆盖到新端；个别设置是否适用，取决于新项目和当前内核。
+默认配置可用后，先迁真正需要的一条自定义规则。例如旧规则`DOMAIN-SUFFIX,example.com,DIRECT`表示example.com及子域名直连：
+
+1. 右键Rev当前订阅卡片，选“编辑规则”。
+2. “规则类型”选`DOMAIN-SUFFIX`，“规则内容”填`example.com`，“代理策略”选`DIRECT`。
+3. 点“添加前置规则”，再“保存”。访问这个域名，检查连接记录是否命中新规则。
+
+换成自己需要的域名与策略；目标若是代理组，必须使用当前配置里实际存在的组名。出错就回同一编辑器删除本次规则并保存。DNS和JavaScript脚本要按新版本分别适配，旧文件留作参照；不要把整份旧覆写或数据目录直接覆盖到Rev。
 
 ![保存并停止旧连接，再在新端导入和完成实际访问](../../assets/images/legacy-migration-flow.webp)
 
@@ -59,7 +65,7 @@ Windows的x64／ARM64是CPU选择，`fixed_webview2`用于相应界面运行环�
 
 默认配置本身解析失败，核对Mihomo兼容格式和报错行；提示端口冲突，先看旧Verge是否还在托盘运行。浏览器能用而某个应用失败，进入[Rev系统代理与TUN专题](../../clash-verge-rev-network.md)判断该应用的接管方式。
 
-新旧软件各自单独运行都出现多个节点故障时，先核对账户、流量和本家公告，再用同一节点换自己的热点比较；本地覆写则按其具体报错处理。
+新旧软件各自单独运行都出现多个节点故障时，先核对账户、流量和你所用服务商的首页公告，再用同一节点换自己的热点比较；本地覆写则按其具体报错处理。
 
 <a id="update"></a>
 
@@ -74,9 +80,8 @@ Windows的x64／ARM64是CPU选择，`fixed_webview2`用于相应界面运行环�
 <details>
 <summary>项目状态与操作资料</summary>
 
-- [旧Clash Verge原仓](https://github.com/zzzgydi/clash-verge)：归档日期2023-11-03，采用2026-11-14冻结复核。
+- [旧Clash Verge原仓](https://github.com/zzzgydi/clash-verge)：归档日期2023-11-03，状态记录截至2026-11-14。
 - [Clash Verge Rev项目](https://github.com/clash-verge-rev/clash-verge-rev)、[订阅管理](https://www.clashverge.dev/guide/profile.html)
-- 界面与版本说明：更新于2026-10-12，本地观察于2026-11-07；用于导入、选择配置、节点与系统代理操作，当前安装包见本仓Rev教程。
 - 封面与迁移顺序图为本仓制作。
 
 </details>
@@ -124,7 +129,7 @@ Windows的x64／ARM64是CPU选择，`fixed_webview2`用于相应界面运行环�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -138,7 +143,7 @@ Windows的x64／ARM64是CPU选择，`fixed_webview2`用于相应界面运行环�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

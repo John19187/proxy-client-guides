@@ -14,7 +14,7 @@ Mac直接取[Surge v6官网ZIP](https://dl.nssurge.com/mac/v6/Surge-latest.zip)�
 
 ## Surge下载：Mac与iPhone／iPad独立渠道
 
-Mac 使用 [Surge v6 官网 ZIP](https://dl.nssurge.com/mac/v6/Surge-latest.zip)。解压后把 Surge 放入“应用程序”再打开，按[官网](https://nssurge.com/)和 App 提示处理授权及兼容性。Surge-latest.zip 是滚动地址，以后下载的内容可能变化；需要回退的人应自己保存原安装文件和配置。
+Mac使用[Surge v6官网ZIP](https://dl.nssurge.com/mac/v6/Surge-latest.zip)，要求macOS 12或更高。解压后把Surge放入“应用程序”再打开；可[试用7天](https://kb.nssurge.com/surge-knowledge-base/release-notes/surge-mac-6#trial)，全部功能开放，无需信用卡。正式Mac授权从[官网购买](https://nssurge.com/buy_now)，与iOS授权分开。Surge-latest.zip 是滚动地址，以后下载的内容可能变化；需要回退的人应自己保存原安装文件和配置。
 
 iPhone／iPad 使用 [Surge 5 正式商店条目](https://apps.apple.com/us/app/surge-5/id1442620678?uo=4)，开发者 Surge Networks Inc.，ID 1442620678，本页适用要求为 iOS／iPadOS 17 或更高版本。Mac ZIP 不能用于手机，软件授权也应按各平台的实际条件确认。
 
@@ -68,13 +68,18 @@ iPhone／iPad 使用 [Surge 5 正式商店条目](https://apps.apple.com/us/app/
 
 手机上停止代理使用首页开关，再切回原来的 VPN。无论 Mac 还是手机，运行后目标失败都先保留规则，换已有节点或网络比较；基础代理不要求启用抓包、MitM 或脚本。
 
-多个节点在同一时期失败，先查账户有效期、流量和本家公告，记录地区、网络及发生时间，再用同一节点比较另一条自己的网络。
+多个节点在同一时期失败，先查账户有效期、流量和你所用服务商的首页公告，记录地区、网络及发生时间，再用同一节点比较另一条自己的网络。
 
 <a id="update"></a>
 
 ## 更新托管配置
 
-服务调整节点时，更新原来的远程托管文件，再确认它被选中和应用。整份托管可能替换其中的本地修改，自定义规则应另存；分段托管与本地文件的更新方式不同，按当前文件的来源处理。
+服务调整节点时，在原托管配置上发起更新：
+
+- **iPhone／iPad：** 点首页左上角配置名，长按需要更新的托管配置，选“现在更新”。完成后点右上角“完成”或✓，保持该配置被选中。
+- **Mac：** 打开“更多 → 配置”，右键目标托管配置，选“立刻检查更新”，再确认它已选中和应用；需要重新载入时，从菜单栏Surge图标选“重载配置”。
+
+服务要求先开放订阅下载窗口时，先在该服务后台开启。完整托管会跟随整份远端内容，自定义修改先另存；分段托管只更新被托管的部分，本地文件则要另取新版。
 
 解析失败先看是否取得完整 Surge 配置，而非单节点资源或其他软件的文件。个人 URL 只有重置后才需要替换，普通刷新不改变凭据。
 
@@ -93,7 +98,7 @@ iPhone准备改用[Stash导入配置](../stash/README.md#import)，或Android设
 - [Surge 5 正式商店条目](https://apps.apple.com/us/app/surge-5/id1442620678)
 - [Surge 官方手册](https://manual.nssurge.com/)
 - [配置格式与托管方式](https://manual.nssurge.com/profile/format.html)
-- 界面与版本说明：原文更新于2026-02-03，观察于2026-11-06。本文Mac配图为同源隐私处理展示版，未标客户端版本，不作为当前版本实机或实际连通记录；原图保持受保护。
+- Mac操作图未标客户端版本，图片中的个人信息已遮盖。
 
 版本、商店要求和引用材料的整理日期：2026-11-14。
 
@@ -141,7 +146,7 @@ iPhone准备改用[Stash导入配置](../stash/README.md#import)，或Android设
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -156,7 +161,7 @@ iPhone准备改用[Stash导入配置](../stash/README.md#import)，或Android设
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

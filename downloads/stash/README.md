@@ -59,13 +59,13 @@ Stash在iPhone、iPad通过完整配置取得节点、策略组和分流规则�
 
 **刚启动就停止：**核对是否有其他VPN或占用VPN通道的工具重新接管。**保持运行却不能访问：**换当前配置的其他节点或网络比较，保留错误；修改DNS或覆写后才失败，就先撤回这项修改，不清空仍能工作的配置。
 
-多个节点同期异常，再查服务账户、剩余流量与本家公告，核对故障地区和时间，并用同一节点比较另一条自己的网络。具体症状可看[本机连接排查](../../README.md#symptom-table)。
+多个节点同期异常，再查服务账户、剩余流量与你所用服务商的首页公告，核对故障地区和时间，并用同一节点比较另一条自己的网络。具体症状可看[本机连接排查](../../README.md#symptom-table)。
 
 <a id="update"></a>
 
 ## 在原来源更新配置，App从商店升级
 
-服务调整节点和规则，在配置列表更新原远程文件，再到“策略”选择仍有效的节点。远程内容可能替换文件中的本地改动，自己的规则另存副本；个人URL只有真正被重置后才更换，换出口无需添加相同订阅。
+服务调整节点和规则后，需要重新取得远程配置。可沿已知URL下载：先另存本地修改，再打开“设置 → 配置文件 → 从URL下载”，填入原兼容URL并下载；选中刚下载的文件，到“策略”选择节点。这里是重新下载并选择文件，旧文件留到新配置可用。个人URL只有被重置后才更换。
 
 本地文件用户取得新文件再导入。升级Stash程序则使用自己的App Store账户，保存个人URL和自定义内容；套餐续期仍在服务账户完成，更新App不会续期服务。
 
@@ -74,8 +74,6 @@ Stash在iPhone、iPad通过完整配置取得节点、策略组和分流规则�
 在首页停止连接，再到“设置 → 配置文件”点选原可用文件，重新启动。恢复的是这次改动前的配置，无需重置整个App。需要另一款VPN时，同样先停止Stash再连接。
 
 准备改用[Shadowrocket订阅](../shadowrocket/README.md#import)或[Quantumult X节点资源](../quantumult-x/README.md#import)，从服务取得目标格式，保留当前Stash配置到新软件能用。它们的订阅、节点资源和整份配置作用不同，不能只凭同一个账户就互换文件。
-
-日常在“配置文件”维护来源，在“策略”换出口；不使用时停止首页连接，已保存的配置留待下次继续。
 
 <details>
 <summary>官方资料与图片范围</summary>
@@ -128,7 +126,7 @@ Stash在iPhone、iPad通过完整配置取得节点、策略组和分流规则�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -143,7 +141,7 @@ Stash在iPhone、iPad通过完整配置取得节点、策略组和分流规则�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

@@ -29,7 +29,7 @@
 2. 打开托管配置管理窗口，保存对应URL；找不到地址时，从自己的服务账户重取Clash／Mihomo兼容订阅。
 3. 本地配置复制实际YAML文件，自己增加的规则、DNS也另存。文件和订阅地址放在自己控制的位置。
 
-只有YAML也可以尝试本地导入，但没有远程来源就不能靠它自动取得新节点。需要分清输入类型时，可读[订阅链接、完整配置和单节点的区别](../../subscription-formats.md#format-table)。
+只有YAML时，可按[Rev本地配置导入](../clash-verge-rev/README.md#local-file)使用已保存文件，但没有远程来源就不能靠它自动取得新节点。需要分清输入类型时，可读[订阅链接、完整配置和单节点的区别](../../subscription-formats.md#format-table)。
 
 ## 退出旧ClashX，安装Meta
 
@@ -65,7 +65,7 @@
 
 Meta也退出后普通网页仍失败，到macOS当前网络服务的“代理”设置，撤回本次旧客户端遗留的本地地址或脚本，保留单位网络原有项目。入口见[退出客户端后恢复网络](../../README.md#restore-and-report)。
 
-浏览器能用而某个应用失败，先看该应用是否读取系统代理；需要别的接管方式，可按Meta教程的对应分支处理。新旧客户端单独运行都出现多个节点故障时，检查账户和本家公告，记录发生时间及网络，再用同一节点比较自己的热点。
+浏览器能用而某个应用失败，先看该应用是否读取系统代理；需要别的接管方式，可按Meta教程的对应分支处理。新旧客户端单独运行都出现多个节点故障时，检查账户和你所用服务商的首页公告，记录发生时间及网络，再用同一节点比较自己的热点。
 
 <a id="update"></a>
 
@@ -82,7 +82,6 @@ Meta也退出后普通网页仍失败，到macOS当前网络服务的“代理�
 
 - 原ClashX身份：`yichengchen/clashX`，2026-11-14公开地址返回404。
 - [ClashX Meta项目](https://github.com/MetaCubeX/ClashX.Meta)及其v1.4.48托管配置、菜单实现，字段和适用系统详见Meta教程。
-- 历史安装图中的“ClashX.app”来自Pro界面，不能作为普通ClashX或Meta的操作图。
 - 本页封面与迁移顺序图为本仓整理说明图。
 
 </details>
@@ -130,7 +129,7 @@ Meta也退出后普通网页仍失败，到macOS当前网络服务的“代理�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX Pro](../clashx-pro/README.md) | macOS历史版本 | Pro托管配置与增强模式 |
@@ -144,7 +143,7 @@ Meta也退出后普通网页仍失败，到macOS当前网络服务的“代理�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

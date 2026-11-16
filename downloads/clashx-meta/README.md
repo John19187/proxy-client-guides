@@ -68,7 +68,7 @@ ClashX Meta在Mac顶部菜单栏提供配置、节点和代理开关。下载并
 
 重新展开小猫菜单，确认目标配置和节点仍被选中，“设置为系统代理”也保持勾选。另一个代理程序或系统工具改写网络设置时，系统代理可能不再指向ClashX Meta；关闭冲突程序的接管，再由当前客户端设置。不要让两款软件同时反复争用代理。
 
-只有某个节点失败，可在同一代理组换一个节点再访问。多个节点相近时间一起失效时，查看账户、流量和本家公告，核对时间及受影响网络；保留本机错误，再用同一节点换自己的热点比较。
+只有某个节点失败，可在同一代理组换一个节点再访问。多个节点相近时间一起失效时，查看账户、流量和你所用服务商的首页公告，核对时间及受影响网络；保留本机错误，再用同一节点换自己的热点比较。
 
 ### 浏览器能用，某个应用仍超时
 
@@ -92,17 +92,17 @@ ClashX Meta在Mac顶部菜单栏提供配置、节点和代理开关。下载并
 
 ## 升级、迁移与暂时停用
 
-升级客户端程序和更新订阅是两件事。准备从旧ClashX迁入，或升级ClashX Meta时，先保留个人订阅地址、本地配置文件及自己改过的规则。
+升级或迁移前，先保存个人订阅地址、本地配置文件及自己改过的规则。两种操作分开进行：
 
 [![旧客户端迁移顺序：保留资料并停止旧接管，导入新客户端，完成访问后再处理旧软件](../../assets/images/legacy-migration-flow.webp)](../../assets/images/legacy-migration-flow.webp)
 
-先关闭旧程序的系统代理及已启用的Tun或增强模式，再完整退出。在ClashX Meta里重新导入服务提供的兼容订阅，完成实际访问后，再逐项迁回确有需要的DNS、兼容脚本和自定义规则。ClashX、ClashX Pro与ClashX Meta名称接近，也不应直接相互覆盖数据目录。
+**从ClashX或Pro迁入：** 先关闭旧程序的系统代理及已启用的Tun或增强模式，再完整退出。在ClashX Meta里重新导入服务提供的兼容订阅，完成实际访问后，再逐项迁回确有需要的DNS、兼容脚本和自定义规则。ClashX、ClashX Pro与ClashX Meta名称接近，也不应直接相互覆盖数据目录。
 
-升级ClashX Meta可从“帮助 → 检查更新”或[项目发行页](https://github.com/MetaCubeX/ClashX.Meta/releases/latest)查看版本。保留升级前程序与资料；新版本或新配置失败时，先选回此前可用的配置，确需回退再恢复相配的旧程序和数据。
+**已经使用ClashX Meta：** 从“帮助 → 检查更新”或[项目发行页](https://github.com/MetaCubeX/ClashX.Meta/releases/latest)查看版本并升级；现有配置仍正常时，无需重新添加订阅。保留升级前程序与资料；新版本或新配置失败时，先选回此前可用的配置，确需回退再恢复相配的旧程序和数据。
 
 暂时停用时，在小猫菜单取消“设置为系统代理”，本次开过Tun模式的也一并关闭，然后再退出。若程序异常退出后普通网页也打不开，重新打开它撤回这两项设置。程序无法启动时，在“系统设置 → 网络 → 当前网络 → 详细信息 → 代理”恢复本次改动；旧系统入口为“系统偏好设置 → 网络 → 高级 → 代理”，工作网络原有代理需要保留。
 
-配置完成后，日常从小猫菜单换节点，服务调整内容时更新托管配置。为另一台设备选软件，可回到[2026年机场通用客户端汇总与下载教程](../../README.md)，按平台进入相应教程。
+为另一台设备选软件，可回到[2026年机场通用客户端汇总与下载教程](../../README.md)，按平台进入相应教程。
 
 <details>
 <summary>官方资料与图片来源</summary>
@@ -158,7 +158,7 @@ ClashX Meta在Mac顶部菜单栏提供配置、节点和代理开关。下载并
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -173,7 +173,7 @@ ClashX Meta在Mac顶部菜单栏提供配置、节点和代理开关。下载并
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

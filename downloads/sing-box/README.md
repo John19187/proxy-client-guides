@@ -72,7 +72,26 @@ sing-box对应完整JSON一栏。HTTPS是地址传输方式，配置按实际返
 
 **下载后仍解析失败：**可能返回登录页、错误页或不兼容字段。保留具体错误、服务给的版本要求与客户端内核版本，再取适配配置；系统VPN权限不能修复JSON格式错误。
 
-电脑与Apple客户端也按[官方图形客户端通用说明](https://sing-box.sagernet.org/clients/general/)使用Local或Remote，但新增、保存和系统授权的位置按各自界面处理。
+### Windows／Linux图形客户端
+
+下列路径按官方桌面客户端1.14.4源码界面说明：
+
+1. 在Profile／配置卡右上点“+ → Create Manually／手动创建”。
+2. Name填本机识别名，Type选Remote，URL填兼容的完整JSON，点Create。
+3. 点配置卡中的名称打开列表，选择新记录；该行出现勾选后回仪表。
+4. 点工具栏三角形“Start”启动，运行后按钮变为“Stop”，并显示运行时长。需要的流量接入方式由JSON中的inbound决定；若使用系统代理，还要开启相应系统代理项。
+
+只有本地JSON时，在同一“+”菜单选“Import from File”，选择文件后完成导入。Windows若先进入本地服务设置页，按当前状态显示的Install或Repair处理；Linux包管理安装的服务缺失时，应修复安装包，不能照Windows点一个不存在的安装按钮。
+
+### Mac／iPhone／iPad图形客户端
+
+Apple版下面的控件来自当前官方界面源码，商店版本独立更新：
+
+1. 在仪表Profile配置卡点“+ → Create Manually”，填写Name、Type=Remote和URL，再点Create。
+2. 点配置名称打开列表，选用需要的配置。本地JSON改走“+ → Import from File”。
+3. 点三角形Start启动。iPhone／iPad按iOS提示添加VPN；Mac系统扩展版如显示“Install System Extension”，先安装扩展，系统要求重启时完成重启，再启动连接。
+
+Remote下载失败时保留原错误和配置，先核URL与内核兼容。各平台正式入口见[官方客户端说明](https://sing-box.sagernet.org/clients/)。
 
 若服务只给面向普通订阅的导入入口，没有适配本版内核的完整JSON，可看[Hiddify成品订阅导入](../hiddify/README.md#import)或[Karing支持的订阅与添加方式](../karing/README.md#import)，向原服务确认目标格式；已有完整配置的人继续本页，不必另换服务。
 
@@ -99,7 +118,7 @@ Android先断开另一款正在运行的个人VPN，然后启动SFA。
 
 Mac首次运行按系统提示批准网络扩展；iPhone／iPad允许本机VPN配置。Windows／Linux按其客户端与系统权限处理接管，不能照点Android的VPN许可。安装或授权有具体错误时保留原文，先按[官方桌面说明](https://sing-box.sagernet.org/clients/desktop/)或[Apple说明](https://sing-box.sagernet.org/clients/apple/)定位对应平台。
 
-目标仍打不开，先看当前配置和DNS、连接错误；有其他出站再换一个比较。多条出站在同一网络失败，可换网络作一次对照，再查账户和本家公告；按[本机症状排查](../../README.md#symptom-table)区分配置解析、流量接管与目标连接。
+目标仍打不开，先看当前配置和DNS、连接错误；有其他出站再换一个比较。多条出站在同一网络失败，可换网络作一次对照，再查账户和你所用服务商的首页公告；按[本机症状排查](../../README.md#symptom-table)区分配置解析、流量接管与目标连接。
 
 <a id="update"></a>
 
@@ -123,10 +142,10 @@ Mac新应用列表为空，可重新导入保存的URL，或按官方独立客�
 <summary>版本、操作与图片来源</summary>
 
 - [sing-box v1.14.4发行记录](https://github.com/SagerNet/sing-box/releases/tag/v1.14.4)、[图形客户端通用配置说明](https://sing-box.sagernet.org/clients/general/)
-- [SFA源码版本1.14.4](https://github.com/SagerNet/sing-box-for-android/blob/f87c2ebdb7e34754be751bb5e58926db2fed8f8c/version.properties)、[新建配置页面](https://github.com/SagerNet/sing-box-for-android/blob/f87c2ebdb7e34754be751bb5e58926db2fed8f8c/app/src/main/java/io/nekohasekai/sfa/compose/screen/configuration/NewProfileScreen.kt)、[仪表配置卡](https://github.com/SagerNet/sing-box-for-android/blob/f87c2ebdb7e34754be751bb5e58926db2fed8f8c/app/src/main/java/io/nekohasekai/sfa/compose/screen/dashboard/ProfilesCard.kt)及[中文控件名](https://github.com/SagerNet/sing-box-for-android/blob/f87c2ebdb7e34754be751bb5e58926db2fed8f8c/app/src/main/res/values-zh-rCN/strings.xml)：Android的添加、创建、选择及刷新入口。未把开发分支1.15.0-alpha的界面当成1.14.4。
+- [SFA源码版本1.14.4](https://github.com/SagerNet/sing-box-for-android/blob/f87c2ebdb7e34754be751bb5e58926db2fed8f8c/version.properties)、[新建配置页面](https://github.com/SagerNet/sing-box-for-android/blob/f87c2ebdb7e34754be751bb5e58926db2fed8f8c/app/src/main/java/io/nekohasekai/sfa/compose/screen/configuration/NewProfileScreen.kt)、[仪表配置卡](https://github.com/SagerNet/sing-box-for-android/blob/f87c2ebdb7e34754be751bb5e58926db2fed8f8c/app/src/main/java/io/nekohasekai/sfa/compose/screen/dashboard/ProfilesCard.kt)及[中文控件名](https://github.com/SagerNet/sing-box-for-android/blob/f87c2ebdb7e34754be751bb5e58926db2fed8f8c/app/src/main/res/values-zh-rCN/strings.xml)：Android的添加、创建、选择及刷新入口。
 - [Apple客户端项目](https://github.com/SagerNet/sing-box-for-apple)、[官方Apple商店入口](https://sing-box.sagernet.org/clients/apple/)、[官方桌面说明](https://sing-box.sagernet.org/clients/desktop/)
-- [Android原演示图](https://raw.githubusercontent.com/SagerNet/sing-box-for-android/dev/app/src/other/play/listings/en-US/graphics/phone-screenshots/1.png)：SagerNet原图，本轮核得原尺寸133×296，版本未标；展示副本保原来源。封面与配置类型图为本仓整理。
-- 固定安装包、商店要求采用2026-11-14资料，本轮补读对应版本操作源码；未作联网测速结论。
+- [Android原演示图](https://raw.githubusercontent.com/SagerNet/sing-box-for-android/dev/app/src/other/play/listings/en-US/graphics/phone-screenshots/1.png)：SagerNet原图，未标版本。封面与配置类型图为本仓整理。
+- 安装包与商店系统要求信息截至2026-11-14。
 
 </details>
 
@@ -172,7 +191,7 @@ Mac新应用列表为空，可重新导入保存的URL，或按官方独立客�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -187,7 +206,7 @@ Mac新应用列表为空，可重新导入保存的URL，或按官方独立客�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

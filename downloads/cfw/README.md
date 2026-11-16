@@ -23,7 +23,7 @@ Clash for Windows（CFW）旧用户，先在Profiles配置页保存订阅URL、�
 
 [![旧CFW配置页的远程URL输入框和配置记录](../../assets/images/cfw-legacy-profiles.webp)](../../assets/images/cfw-legacy-profiles.webp)
 
-   左侧“配置”就是Profiles页，下方条目显示配置名称。条目显示已保存的配置。
+   左侧“配置”就是Profiles页，下方条目显示已保存的配置名称。
 
 2. 使用远程订阅时，从自己的服务账户重新复制Clash／Mihomo订阅URL；使用本地配置时，复制实际YAML文件。旧程序能打开配置所在目录，就从该入口定位文件，不要只记列表名称。
 3. 另存自己写的规则、DNS和脚本，记录本机端口及代理开关状态。CFW解析器等功能可能在下载配置之后再改内容，这些软件设置不一定包含在YAML里。
@@ -48,13 +48,13 @@ URL保留以后更新的来源，本地YAML保留当前内容，两者用途不�
 
 ## 在Rev重建订阅，不覆盖整个数据目录
 
-用已保存的订阅地址在Rev重新添加配置，原CFW目录留作恢复和查找个人修改。两款软件各用自己的数据目录与设置，迁移时在Rev重新添加配置。
+在Rev重新添加已保存的订阅，原CFW目录留作恢复和查找个人修改。两款软件各用自己的数据目录，不要整套相互覆盖。
 
-1. 打开Rev“订阅”，粘贴自己的Mihomo兼容URL并点击“导入”。只有本地YAML时，按[Rev本地配置导入说明](../clash-verge-rev/README.md#import)添加该文件。
+1. 打开Rev“订阅”，粘贴自己的Mihomo兼容URL并点击“导入”。只有本地YAML时，按[Rev本地配置导入说明](../clash-verge-rev/README.md#local-file)添加该文件。
 2. 选中新配置卡片，到“代理”展开策略组，选择要用的节点。
 3. 在“设置”开启系统代理。先使用服务默认配置，旧解析器和覆写留在备份中。
 
-完整画面见[Rev订阅与节点选择](../clash-verge-rev/README.md#import)。**导入报错要重新买订阅吗？** 先按[格式与解析错误](../../subscription-formats.md#import-errors)核对输入。账户有效时，下载、格式或字段错误需要分别处理。
+完整画面见[Rev订阅与节点选择](../clash-verge-rev/README.md#import)。导入报错时，先按[格式与解析错误](../../subscription-formats.md#import-errors)核对输入。账户有效时，下载、格式或字段错误需要分别处理。
 
 <a id="connect"></a>
 
@@ -68,13 +68,13 @@ URL保留以后更新的来源，本地YAML保留当前内容，两者用途不�
 
 浏览器可用、特定应用仍失败，进入[Rev应用接管与TUN专题](../../clash-verge-rev-network.md)。不要为了接住一个应用，重新同时开启CFW与Rev。
 
-如果CFW和Rev分别单独运行时，多个节点都失败，继续检查账户有效期、剩余流量和本家公告；保留两款软件的具体错误，用同一节点比较另一条自己的网络。
+如果CFW和Rev分别单独运行时，多个节点都失败，继续检查账户有效期、剩余流量和你所用服务商的首页公告；保留两款软件的具体错误，用同一节点比较另一条自己的网络。
 
 <a id="update"></a>
 
 ## 迁移完成以后，在Rev更新订阅
 
-确认Rev使用正常后，CFW的旧列表无需继续维护，旧备份仍用于找回尚未迁入的本地改动。Rev不能用而需要暂时回退时，先关闭Rev系统代理与TUN并退出，再恢复CFW及它匹配的数据，只让一个客户端处理流量。
+Rev不能用而需要暂时回退时，先关闭Rev系统代理与TUN并退出，再恢复CFW及它匹配的数据，只让一个客户端处理流量。
 
 更希望用账号直接登录服务App，可比较[VPN推荐中的App和设备支持](https://github.com/John19187/The-40-Best-VPNs#翻墙客户端与使用方式怎么选)；需要通用客户端订阅，可看[机场推荐中的Clash支持和套餐条件](https://github.com/John19187/ji-chang-tui-jian#airport-clients)。两篇是多家服务的推荐与推广文章，不是每个VPN账号都能导入Rev；已有兼容订阅就继续使用。
 
@@ -86,7 +86,7 @@ URL保留以后更新的来源，本地YAML保留当前内容，两者用途不�
 - 原CFW项目：`Fndroid/clash_for_windows_pkg`，2026-11-14公开地址返回404。
 - [Clash Verge Rev开发者原仓](https://github.com/clash-verge-rev/clash-verge-rev)
 - [Rev订阅管理](https://www.clashverge.dev/guide/profile.html)
-- 界面与版本说明：原文更新于2026-10-25，本地观察于2026-11-07。配置页图片保留旧CFW身份，只用于辨认迁移前资料。
+- 配置页操作图为旧CFW界面，用于辨认迁移前的Profiles配置页。
 
 </details>
 
@@ -133,7 +133,7 @@ URL保留以后更新的来源，本地YAML保留当前内容，两者用途不�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
 | [ClashX Pro](../clashx-pro/README.md) | macOS历史版本 | Pro托管配置与增强模式 |
@@ -147,7 +147,7 @@ URL保留以后更新的来源，本地YAML保留当前内容，两者用途不�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

@@ -47,7 +47,7 @@ Karing可在手机和电脑导入服务提供的订阅。安装后从“添加�
 | Android APK | 从下载通知或文件管理器打开；系统要求授权时，只允许本次使用的来源安装 |
 | iPhone／iPad | 从上面的App Store入口安装 |
 
-打开已有服务账户，复制明确供Karing使用的订阅URL。没有这个选项时，对照[官方支持的配置类型](https://karing.app/app-manual/add-profiles)向服务确认。取得服务为Karing准备的兼容格式后，普通用户有成品订阅就可以直接导入。
+在服务账户复制供Karing使用的订阅URL。账户没有这个选项时，按[官方支持的配置类型](https://karing.app/app-manual/add-profiles)向服务方确认格式。
 
 个人订阅通常含凭据，不公开地址、二维码或带地址的截图。后台登录页、购买页和浏览器地址栏中的账户网址，不是订阅URL。
 
@@ -92,7 +92,7 @@ Karing导入后默认选择一个服务器。需要自己选时，从主屏下�
 
 默认分流可先保留。“规则”按分流规则处理，“全局”让进入软件的流量经当前选择转发；改全局不能代替选可用节点，也不能让所有应用自动读取系统代理，见[官方主屏说明](https://karing.app/app-manual/home)。
 
-**已连接但电脑浏览器仍失败：**看当前服务器、总连接开关及PC系统代理是否符合上述选择。只有某个应用失败，核对它是否有独立代理设置。多个节点都失败，再看账户、流量和本家公告；用同一节点比较另一条自己的网络，保留具体连接错误。
+**已连接但电脑浏览器仍失败：**看当前服务器、总连接开关及PC系统代理是否符合上述选择。只有某个应用失败，核对它是否有独立代理设置。多个节点都失败，再看账户、流量和你所用服务商的首页公告；用同一节点比较另一条自己的网络，保留具体连接错误。
 
 <a id="update"></a>
 
@@ -103,7 +103,7 @@ Karing导入后默认选择一个服务器。需要自己选时，从主屏下�
 
 这是[官方“我的配置”文档](https://karing.app/app-manual/my-profiles)列出的下载更新入口。主屏流量信息旁的刷新按钮只刷新用量，不重新下载配置；服务已换节点而本地列表没变，应更新配置，不只刷新流量。本地文件用户另取新文件。
 
-升级Karing程序则走官方发行页或App Store，更新订阅不会升级软件，也不会购买或续费服务。
+升级Karing程序则走官方发行页或App Store，更新订阅不会升级软件。
 
 <a id="backup-sync"></a>
 <a id="用备份与同步迁移到另一台设备"></a>
@@ -132,7 +132,7 @@ Karing导入后默认选择一个服务器。需要自己选时，从主屏下�
 <summary>官方资料与图片来源</summary>
 
 - [Karing项目](https://github.com/KaringX/karing)与[v1.2.26.2931发行记录](https://github.com/KaringX/karing/releases/tag/v1.2.26.2931)：固定下载文件。
-- [快速使用教程](https://karing.app/quickstart)、[添加配置](https://karing.app/app-manual/add-profiles)、[我的配置](https://karing.app/app-manual/my-profiles)、[主屏](https://karing.app/app-manual/home)及[备份与同步](https://karing.app/tutorial/backup-sync)：本轮补读完整官方操作说明。主屏文档的另一张示例图注明PC端1.0.29.395，不将它冒作本页固定包界面。
+- [快速使用教程](https://karing.app/quickstart)、[添加配置](https://karing.app/app-manual/add-profiles)、[我的配置](https://karing.app/app-manual/my-profiles)、[主屏](https://karing.app/app-manual/home)及[备份与同步](https://karing.app/tutorial/backup-sync)：添加配置、连接与备份的官方说明。
 - 操作图来自KaringX/karing官方Windows演示：[添加配置原图](https://raw.githubusercontent.com/KaringX/karing/main/README_assets/demo/add_profile_link.png)、[选择服务器原图](https://raw.githubusercontent.com/KaringX/karing/main/README_assets/demo/select_server.png)。保留原界面及来源，未标版本；封面以同款官方图整理。
 
 </details>
@@ -179,7 +179,7 @@ Karing导入后默认选择一个服务器。需要自己选时，从主屏下�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -194,7 +194,7 @@ Karing导入后默认选择一个服务器。需要自己选时，从主屏下�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

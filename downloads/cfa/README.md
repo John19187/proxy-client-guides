@@ -53,7 +53,7 @@ CMFA沿用接近CFA的配置、代理组操作；FlClash使用另一套界面。
 - **CMFA**：在“配置”中新建URL配置，填写并下载自己的Clash／Mihomo订阅，再选中它。具体界面见[CMFA创建配置和导入订阅](../cmfa/README.md#import)。
 - **FlClash**：从配置页添加URL订阅，导入后选中这份配置，见[FlClash导入订阅](../flclash/README.md#import)。
 
-只有本地YAML文件时，用所选客户端的文件导入入口。新内核按自身支持的字段解析YAML；报解析错误时保留原文件，按错误行核对兼容性，或从原服务取得适配配置，不靠改后缀转换。
+只有本地YAML文件时，可按[CMFA文件导入](../cmfa/README.md#local-file)或[FlClash文件导入](../flclash/README.md#local-file)添加并选用配置。新内核按自身支持的字段解析YAML；报解析错误时保留原文件，按错误行核对兼容性，或从原服务取得适配配置，不靠改后缀转换。
 
 配置出现在列表中，说明添加完成；还要选中它，才能继续使用其中的节点与规则。
 
@@ -71,7 +71,7 @@ CMFA沿用接近CFA的配置、代理组操作；FlClash使用另一套界面。
 
 新端连接失败，先停止新App并保留具体错误。旧端原来仍可用，可以回CFA选择原配置临时恢复；旧端本来就已失效，保留资料，继续处理订阅或连接错误。只想恢复普通联网时，停止新旧VPN，并核对CFA的始终开启限制是否已撤回。
 
-若多款客户端在同一网络、同一时段都出现问题，保留原配置，用同一节点换自己的热点作对照，并查看本家公告是否列出对应地区和网络的故障。
+若多款客户端在同一网络、同一时段都出现问题，保留原配置，用同一节点换自己的热点作对照，并查看你所用服务商的首页公告是否列出对应地区和网络的故障。
 
 <a id="update"></a>
 
@@ -88,8 +88,7 @@ CMFA沿用接近CFA的配置、代理组操作；FlClash使用另一套界面。
 <summary>项目身份与资料来源</summary>
 
 - [CMFA项目](https://github.com/MetaCubeX/ClashMetaForAndroid)、[FlClash项目](https://github.com/chen08209/FlClash)：新客户端的身份及正式下载渠道。
-- 界面与版本说明：原文更新于2026-05-25，本地观察时间为2026-11-06；展示CMFA配置与VPN操作。
-- 原CFA仓库无法公开访问的状态采用2026-11-14冻结核验；本页未用同名镜像替代原发行。
+- 原CFA仓库公开地址不可访问，状态记录于2026-11-14。
 - 迁移顺序图为本仓整理说明图，封面为本仓制作；新端截图及各自来源见对应教程。
 
 </details>
@@ -137,7 +136,7 @@ CMFA沿用接近CFA的配置、代理组操作；FlClash使用另一套界面。
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
 | [ClashX Pro](../clashx-pro/README.md) | macOS历史版本 | Pro托管配置与增强模式 |
@@ -151,7 +150,7 @@ CMFA沿用接近CFA的配置、代理组操作；FlClash使用另一套界面。
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

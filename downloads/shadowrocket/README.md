@@ -55,7 +55,7 @@ Shadowrocket（小火箭）从App Store安装，使用自己已有的服务订�
 
 **开关一直连接或刚打开就断开**，先检查是否有另一款VPN自动重接，再看系统或客户端的具体错误。**节点能测出延迟，网页仍不通**，在同一订阅中换一个实际节点，再换Wi-Fi／移动网络比较，按[连接症状与处理](../../README.md#symptom-table)继续判断，不反复清空所有VPN配置。
 
-原来能用、后来多个节点同时失败时，先查看服务账户、流量和本家公告，核对故障时间及受影响网络，再用同一节点比较自己的Wi-Fi与蜂窝网络。
+原来能用、后来多个节点同时失败时，先查看服务账户、流量和你所用服务商的首页公告，核对故障时间及受影响网络，再用同一节点比较自己的Wi-Fi与蜂窝网络。
 
 <a id="update"></a>
 
@@ -83,13 +83,11 @@ Shadowrocket（小火箭）从App Store安装，使用自己已有的服务订�
 
 换成[Stash导入完整配置](../stash/README.md#import)或[Quantumult X添加节点资源](../quantumult-x/README.md#import)，先按[跨客户端格式判断](../../subscription-formats.md#switch-client)重新取得目标输入，保留当前可用资料。换到Android设备，可按[Clash Meta for Android下载与配置教程](../cmfa/README.md)取得服务方对应的兼容订阅后再导入，不把两款软件的文件直接互换。其他设备方案见[2026年机场通用客户端汇总与下载教程](../../README.md)。
 
-完成首次连接后，平时在首页换节点，服务调整内容时刷新原订阅；需要停用时关闭连接开关，保留这份已经可用的配置即可。
-
 <details>
 <summary>正式商店与图片来源</summary>
 
 - [Shadowrocket正式App Store条目](https://apps.apple.com/us/app/shadowrocket/id932747118)：开发者、US$2.99美区价格及iPhone／iPad系统要求，本次于2026年11月15日读取。
-- 界面与版本说明：本项目已接收的完整教程，原始观察于2026年11月7日；共享账号资格、订阅开关及网页提示按对应服务适用。
+- 操作图展示订阅导入与连接。服务账户的订阅下载开关和账号使用条件，见该服务商自己的使用说明。
 - 界面与版本说明：小火箭刷新、右滑更新及结果提示，原始观察于2026年11月7日。
 - 导入与更新图为归档界面，未显示客户端版本号，本文用于说明相应入口，不标作当前版本实机截图。第三方商标归各自权利方，原件保留在项目资产，正文使用整理展示副本；特色图为本仓库制作。
 
@@ -137,7 +135,7 @@ Shadowrocket（小火箭）从App Store安装，使用自己已有的服务订�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -152,7 +150,7 @@ Shadowrocket（小火箭）从App Store安装，使用自己已有的服务订�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

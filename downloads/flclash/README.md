@@ -1,6 +1,6 @@
 # 2026年FlClash下载与使用教程：电脑、安卓安装及订阅导入图解
 
-Windows x64电脑选EXE安装版，常见安卓手机选ARM64 APK；其他处理器按下表核对。安装后，从服务账户复制Clash／Mihomo订阅，在FlClash“配置”页通过URL添加，选中配置后再开启连接。
+Windows x64电脑选EXE安装版，常见安卓手机选ARM64 APK；其他处理器按下表核对。安装后，从服务账户复制Clash／Mihomo订阅，在FlClash“配置”页通过链接添加，选中配置后再开启连接。
 
 **常用下载：** [Windows x64 安装版](https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-windows-amd64-setup.exe) · [安卓 ARM64 APK](https://github.com/chen08209/FlClash/releases/download/v0.9.3/FlClash-0.9.3-android-arm64-v8a.apk) · [Mac、Linux 与其他架构](#packages)
 
@@ -10,7 +10,7 @@ Windows x64电脑选EXE安装版，常见安卓手机选ARM64 APK；其他处理
 
 ## FlClash节点订阅从哪里获取
 
-FlClash 通过订阅获取节点。已有 Clash／Mihomo 订阅，可以直接看[导入步骤](#import)。还没有订阅，[机场推荐帖](https://github.com/John19187/ji-chang-tui-jian#airport-clients)可按第三方订阅、设备限制、流量与付款周期比较套餐；购买前确认提供适用于 FlClash 的 Clash／Mihomo 格式。
+FlClash通过订阅获取节点。已有Clash／Mihomo订阅，可以直接看[导入步骤](#import)。还没有订阅，可在[多家机场推荐与推广](https://github.com/John19187/ji-chang-tui-jian#airport-clients)中比较设备限制、流量与付款周期；购买前确认服务提供Clash／Mihomo格式。
 
 服务只允许专属 App 登录时，按本家的方式使用，账号密码不能填进 FlClash 的配置URL。要区分两种接入路线，可看[VPN推荐帖的客户端使用方式](https://github.com/John19187/The-40-Best-VPNs#翻墙客户端与使用方式怎么选)。取得兼容订阅后，在自己的账户中复制完整地址，再回本页添加配置。
 
@@ -22,7 +22,7 @@ FlClash 通过订阅获取节点。已有 Clash／Mihomo 订阅，可以直接�
 2. [用自己的订阅完成第一次连接](#import)：添加配置、选节点与异常处理
 3. [更新订阅、升级FlClash或换设备](#update)：节点和软件分别更新，迁移前保留配置
 
-其他软件见[2026年机场通用客户端汇总与下载教程](../../README.md#choose)。已有订阅可直接进入导入章节；还没有节点时，先看上面的[订阅选择说明](#nodes)。
+其他软件见[2026年机场通用客户端汇总与下载教程](../../README.md#choose)。
 
 <a id="packages"></a>
 
@@ -80,19 +80,23 @@ Linux 的 Debian／Ubuntu 系选 DEB，对应 RPM 发行版选 RPM，也可用�
 
 ### 在配置页添加订阅 URL
 
-在服务账户的订阅页面，复制标为 FlClash、Clash 或 Mihomo 的完整订阅链接。下面通过 URL 下载整份配置，账户首页、注册页和单条 `vless://` 节点链接不适用于这个表单。几种格式的区别可查[订阅与客户端对照](../../subscription-formats.md)。
+在服务账户的订阅页面，复制标为 FlClash、Clash 或 Mihomo 的完整订阅链接。下面用完整订阅下载配置，账户首页和注册页不能代替订阅。该链接表单也支持部分单节点分享链接；只有单节点时，不会因此取得可更新的整份订阅。几种格式的区别可查[订阅与客户端对照](../../subscription-formats.md)。
 
-1. 打开“Profiles／配置”，点击添加按钮“+”，选择“URL”。
-2. 粘贴自己的完整订阅链接。如果表单有名称栏，填写一个方便辨认的名称，然后提交。
+1. 打开“Profiles／配置”，点击添加按钮“+”，选择“链接”，进入“从链接导入”表单。
+2. 将完整订阅填入“链接”；“名称”可选，填写后便于辨认。点工具栏的勾号“提交”。
 3. 等配置下载完成，返回配置列表，点击刚添加的配置卡片，使它成为当前配置。
 
 [![安卓配置页点加号并选择URL。](../../assets/images/flclash-android-add-url.webp)](../../assets/images/flclash-android-add-url.webp)
 
-安卓图中依次点击底部“配置”、右下角“+”、菜单中的“URL”。桌面左侧的Profiles是同一配置入口；两种布局都在这里添加兼容地址。
+这张旧版图把添加链接的选项称为“URL”；本文v0.9.3显示“链接”。手机从底部“配置”进入，桌面从左侧Profiles进入。
 
 [![从左到右填写URL、选中下载好的配置，再回仪表盘启动。](../../assets/images/flclash-android-import-start.webp)](../../assets/images/flclash-android-import-start.webp)
 
 从左到右依次填写地址并提交、点击下载好的配置、回仪表盘启动。示例中的配置名称用于辨认位置，实际选择自己的那份配置。
+
+<a id="local-file"></a>
+
+**已有本地YAML：** 打开“配置 → + → 文件”，在系统文件选择器选中保存的YAML。校验完成后，新配置会出现在列表中；点击卡片选用它。本地文件没有远程订阅来源，之后节点变化要另取新文件。
 
 订阅地址通常包含个人访问凭据，只粘贴到自己的客户端。分享截图或请求帮助时，遮住地址和二维码。
 
@@ -123,7 +127,7 @@ Global／全局模式会把已经进入FlClash的流量交给全局组处理，�
 
 **安卓没有建立 VPN：** 处理系统弹出的 VPN 请求。如果另一款 VPN 正在连接，先停止它，再启动 FlClash。
 
-**换了多个节点都超时：** 先保留配置，比较同一节点在Wi-Fi和自己的蜂窝网络下的表现。再查账户流量、有效期和本家公告；将发生时间、所用网络与具体错误一起交给服务支持，继续定位失败环节。
+**换了多个节点都超时：** 先保留配置，比较同一节点在Wi-Fi和自己的蜂窝网络下的表现。再查账户流量、有效期和你所用服务商的首页公告；将发生时间、所用网络与具体错误一起交给服务支持，继续定位失败环节。
 
 **浏览器能用，某个桌面应用不通：** 查看 FlClash 的连接或请求记录。应用不遵循系统代理时，可按 TUN 的权限提示设置接管；若请求已经进入软件，则检查对应规则和节点。浏览器已经可用时可以继续使用系统代理，两种方式的区别见[系统代理与 TUN 对照](../../README.md#proxy-tun)。
 
@@ -141,15 +145,15 @@ Global／全局模式会把已经进入FlClash的流量交给全局组处理，�
 
 ### 升级 FlClash，先保存程序数据与自定义设置
 
-升级 App 会更换 FlClash 程序。先用本地文件或 WebDAV 备份功能保存配置和自定义设置，再下载同一分发渠道的新安装包。桌面端停止连接、关闭本次开启的系统代理和 TUN，退出后再安装。回退时保留升级前的备份，新版数据未必能被旧程序读取。
+升级前，打开“工具 → 备份与恢复 → 本地 → 备份”，在系统文件窗口选择保存位置；看到“备份成功”后保留生成的备份文件。也可使用该页的WebDAV备份，把数据存到自己的WebDAV空间。
+
+再从同一分发渠道下载新版安装包。桌面端停止连接，关闭本次开启的系统代理和TUN，退出后安装。需要回退时保留旧程序和升级前备份，新版数据未必能被旧程序读取。
 
 ### 换设备或从旧客户端迁来
 
 订阅仍在有效期且服务允许新设备使用时，可在新手机重新导入。先安装适合新手机的 APK，再添加原订阅或恢复备份，并处理新设备的 VPN 授权。设备数量和同时在线限制看套餐条件。
 
 从 CFW 或 CFA 换到 FlClash 时，重新导入兼容订阅，先用默认配置完成连接，再迁入旧覆写、DNS 和规则。停用旧客户端的代理接管，让新客户端单独测试，确认可用后再处理旧 App 的自启或卸载。
-
-首次导入完成后，日常在“代理”页选择节点，在“配置”页更新已经添加的订阅。换手机或电脑时，可以继续使用兼容的个人订阅，按新设备的系统重新安装；退出桌面客户端时关闭本次开启的系统代理和TUN，让普通网络恢复原来的设置。
 
 <details>
 <summary>来源注释与开发者资料</summary>
@@ -201,7 +205,7 @@ Global／全局模式会把已经进入FlClash的流量交给全局组处理，�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -216,7 +220,7 @@ Global／全局模式会把已经进入FlClash的流量交给全局组处理，�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

@@ -20,7 +20,7 @@ NekoBox for Android是MatsuriDayo的手机客户端，与桌面的NekoRay分别�
 
 开发者说明 Google Play 同名版本从 2024 年 5 月起由第三方控制，因此这里沿原仓 APK 下载。ARM64 设备选 arm64-v8a，32 位 ARM 选 armeabi-v7a，x86、x86_64 用于对应架构的设备或模拟器。
 
-| 平台／CPU | 正式版直接下载 |
+| 平台／CPU | 1.4.2历史APK直链 |
 |---|---|
 | Android | **APK：** [NekoBox-1.4.2-arm64-v8a.apk](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.2/NekoBox-1.4.2-arm64-v8a.apk)<br>**APK：** [NekoBox-1.4.2-armeabi-v7a.apk](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.2/NekoBox-1.4.2-armeabi-v7a.apk)<br>**APK：** [NekoBox-1.4.2-x86.apk](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.2/NekoBox-1.4.2-x86.apk)<br>**APK：** [NekoBox-1.4.2-x86_64.apk](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/download/1.4.2/NekoBox-1.4.2-x86_64.apk) |
 
@@ -41,7 +41,7 @@ NekoBox for Android是MatsuriDayo的手机客户端，与桌面的NekoRay分别�
 
 订阅组保存远程下载来源，以后可更新整组节点。NekoBox 的普通订阅读取受支持的服务器资料；它与加载整份 Clash 配置不同。
 
-如果想改用服务自带 App，可先比较[VPN 服务的接入方式](https://github.com/John19187/The-40-Best-VPNs#翻墙客户端与使用方式怎么选)。继续用 NekoBox 时，再从[机场推荐帖的兼容条件](https://github.com/John19187/ji-chang-tui-jian#airport-clients)确认节点格式与设备范围。已有兼容来源，无需因安装客户端另买服务。
+已有服务时，在该服务账户取得NekoBox支持的节点订阅。需要另选服务，可比较[多家VPN推荐与推广的接入方式](https://github.com/John19187/The-40-Best-VPNs#翻墙客户端与使用方式怎么选)或[多家机场推荐与推广的格式、设备条件](https://github.com/John19187/ji-chang-tui-jian#airport-clients)。
 
 1. 打开左上“☰ → 分组”，点“+”创建组，填写便于辨认来源的名称。
 2. “分组类型”选“订阅”，进入“订阅设置”，把个人完整 URL 填入“订阅链接”，点右上对勾保存。
@@ -86,7 +86,7 @@ NekoBox for Android是MatsuriDayo的手机客户端，与桌面的NekoRay分别�
 
 分应用设置先决定某个 App 是否进入 NekoBox，路由再决定进入后的请求去向。只有一个 App 失败时，先检查它是否被排除，以及请求实际经过哪条规则；握手报错再核对节点的 TLS、SNI 和传输参数，不同时调整所有网络设置。
 
-多个节点同时失败时，先看账户有效期、剩余流量和本家公告，核对故障时间、地区及网络；保留同一配置，用自己的热点比较连接结果。
+多个节点同时失败时，先看账户有效期、剩余流量和你所用服务商的首页公告，核对故障时间、地区及网络；保留同一配置，用自己的热点比较连接结果。
 
 停止使用点同一连接按钮。停止后仍不能普通联网，查看Android是否为NekoBox开启“始终开启的VPN”或“无VPN时阻止连接”，撤回不再需要的旧关联。后台断开结合系统限制与日志判断，内核崩溃不能一概当作省电问题；具体错误按[恢复与求助](../../README.md#restore-and-report)脱敏提供。
 
@@ -119,7 +119,6 @@ NekoBox for Android是MatsuriDayo的手机客户端，与桌面的NekoRay分别�
 - [Android 常见问题](https://matsuridayo.github.io/nb4a-faq/)
 - [插件范围与来源](https://matsuridayo.github.io/nb4a-plugin/)
 - [菜单截图出处：原仓 issue 1204](https://github.com/MatsuriDayo/NekoBoxForAndroid/issues/1204)
-- 已接收的服务教程按各自后台入口说明复制订阅、创建分组和更新；其中禁用QUIC等是本家服务建议，不作为NekoBox通用步骤。历史材料缺失的原图不用于补造当前界面；本页只用原仓社区菜单展示副本及明确标注的说明图。
 
 版本、商店要求和引用材料的整理日期：2026-11-14。
 
@@ -167,7 +166,7 @@ NekoBox for Android是MatsuriDayo的手机客户端，与桌面的NekoRay分别�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -182,7 +181,7 @@ NekoBox for Android是MatsuriDayo的手机客户端，与桌面的NekoRay分别�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

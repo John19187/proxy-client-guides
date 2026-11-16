@@ -80,8 +80,8 @@ APK 文件名中的架构需要与设备支持的 ABI 对应。ABI 决定手机�
 ## 选节点，启动Android VPN服务
 
 1. 在主列表打开所需分组，点选要使用的节点。分组决定看哪份来源，选中的服务器决定本次连接对象。
-2. 点主界面的服务启动按钮。首次出现Android VPN请求，确认来自v2rayNG后允许；普通使用保持VPN模式，无需开启Root模式。
-3. 返回应用看到服务运行后，用实际需要的网页或应用完成加载、登录等目标操作。
+2. 点节点主界面右下方、底部状态栏上方的播放三角形“启动服务”。首次出现Android VPN请求，确认来自v2rayNG后允许；普通使用保持VPN模式，无需开启Root模式。
+3. 按钮变为停止图标、服务开始运行后，用实际需要的网页或应用完成加载、登录等目标操作。
 
 Android同一用户或工作资料只能有一个活动VPN服务；另一款VPN启动可能让当前服务停止。切换前明确本次使用的App，停止旧连接后再启动v2rayNG，见[Android VPN说明](https://developer.android.com/develop/connectivity/vpn)。
 
@@ -91,7 +91,7 @@ Android同一用户或工作资料只能有一个活动VPN服务；另一款VPN�
 
 没有取得VPN权限，重新查看系统请求和当前VPN应用，再从v2rayNG启动，保留仍出现的错误。服务保持运行而单个节点失败，换同一订阅另一节点，再试相同目标，同时看账户流量与有效期。
 
-多节点都失败，确认手机直连网页能用，再在Wi-Fi和自己的移动网络间作一次对照；核对账户、流量与本家公告，保存发生时间、网络及脱敏日志，让服务支持核对线路。
+多节点都失败，确认手机直连网页能用，再在Wi-Fi和自己的移动网络间作一次对照；核对账户、流量与你所用服务商的首页公告，保存发生时间、网络及脱敏日志，让服务支持核对线路。
 
 ### 回到桌面或熄屏后断开
 
@@ -135,7 +135,7 @@ TCPing主要反映服务器端口的TCP连通，后面的协议握手、认证�
 - [Android Developers：VPN](https://developer.android.com/develop/connectivity/vpn)：首次连接授权及 Android VPN 服务行为。
 - [封面底图原出处：issue #6433](https://github.com/2dust/v2rayNG/issues/6433)、[原图片](https://github.com/user-attachments/assets/a7a95d35-0522-459c-8702-db08ccfb448c)：原作者以该帖署名为准，原帖版本信息未列明。
 
-本文整理日期为 2026-11-14，使用已有版本资料与中文菜单说明，不包含本次重新安装或联网测速的亲测结论。路径说明图由 John19187 整理，教程仓库为 [proxy-client-guides](https://github.com/John19187/proxy-client-guides)。
+版本与系统要求信息截至2026-11-14。路径说明图由John19187整理。
 
 ## 文档更新记录
 
@@ -179,7 +179,7 @@ TCPing主要反映服务器端口的TCP连通，后面的协议握手、认证�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -194,7 +194,7 @@ TCPing主要反映服务器端口的TCP连通，后面的协议握手、认证�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

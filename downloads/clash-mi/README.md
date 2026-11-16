@@ -128,11 +128,13 @@ Clash Mi 需要包含节点、代理组和规则等内容的完整 YAML 配置�
 
 **升级 Clash Mi：** 经 App Store 安装的版本从商店更新；使用 GitHub 安装包的版本从[官方新版发行页](https://github.com/KaringX/clashmi/releases/latest)选择与设备匹配的包。刷新配置不会把软件升级到新版本，升级软件也不能代替服务商更新订阅内容。
 
-正常升级不需要先卸载应用；保留能重新取得订阅的方式，有自定义配置时另存必要内容。macOS 自动更新后打不开，先从官方重新下载 DMG 安装；若出现扩展读取自身配置的权限提示，再按具体提示及官方 FAQ 处理，不必预先开启完全磁盘访问权限。
+正常升级保留原App及订阅来源；有自定义配置时另存必要内容。
+
+**macOS自动更新后打不开：** 先从官方重新下载DMG安装。只有出现扩展无法读取自身配置的权限提示时，再按[官方FAQ](https://clashmi.app/guide/)对应问题处理权限。
 
 内置 Mihomo 内核和本地面板随 App 更新。官方已禁用面板里的“更新核心”“重启核心”“重载配置”“更新 GEO”等入口，这些功能由App管理，日常订阅更新按配置页操作。
 
-若多个节点同期异常，记录发生时间、地区及所用网络，核对本家公告的影响范围；连接机制与故障环节可查[科普中的连接判断](https://github.com/John19187/ssr-v2ray-trojan-clash-guide#diagnosis)，具体操作仍按本篇对应症状处理。
+若多个节点同期异常，记录发生时间、地区及所用网络，核对你所用服务商的首页公告的影响范围；连接机制与故障环节可查[科普中的连接判断](https://github.com/John19187/ssr-v2ray-trojan-clash-guide#diagnosis)，具体操作仍按本篇对应症状处理。
 
 本文操作依据为 [Clash Mi 官方用户手册](https://clashmi.app/guide/)及 [KaringX/clashmi 官方项目](https://github.com/KaringX/clashmi)对应版本资料，界面截图来自官方手册，说明图由本教程仓库整理。资料整理日期为 2026-11-14。
 
@@ -178,7 +180,7 @@ Clash Mi 需要包含节点、代理组和规则等内容的完整 YAML 配置�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -193,7 +195,7 @@ Clash Mi 需要包含节点、代理组和规则等内容的完整 YAML 配置�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

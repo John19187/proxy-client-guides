@@ -55,9 +55,14 @@ Surfboard是Android代理客户端。安装后，把服务商提供的**Surfboar
 1. 先断开正在运行的其他VPN。回Surfboard“仪表盘”，在“出站模式”选择“规则”。
 2. 点右下角三角形播放按钮。首次出现Android的VPN连接请求时，点系统对应的允许按钮。
 
-[![Surfboard仪表盘的运行按钮和代理页节点选择组](../../assets/images/surfboard-start-proxy.webp)](../../assets/images/surfboard-start-proxy.webp)
+<details>
+<summary>查看旧版仪表盘与节点列表</summary>
 
-左图标出“规则”与播放按钮，右图是启动后“代理”页的节点选择组。套餐到期和流量从账户查看；截图里的勾选示例落在信息条目上，实际操作应选“香港01”等服务器。
+右图“香港01”“香港02”等是服务器。“套餐到期日期”“套餐流量剩余”等是信息项；图中对勾落在信息项上，选择时请点实际服务器。左图右下角三角形用于启动。
+
+[![Surfboard旧版仪表盘与节点列表，右图信息项不作为出口](../../assets/images/surfboard-start-proxy.webp)](../../assets/images/surfboard-start-proxy.webp)
+
+</details>
 
 3. 打开底部“代理”，进入可以手动选择的组，点一个实际服务器。组名可能叫“节点选择”或“Proxy”，以自己的配置为准；所选卡片会显示勾选标记。
 4. 用浏览器打开你实际需要的网站，再试需要使用的应用。能够完成原来的访问任务，就可以按当前配置继续使用。
@@ -68,7 +73,7 @@ Surfboard通过Android VPN接管流量，实际转发仍受配置规则和应用
 
 **启动后立即停止**，先查看是否有另一款VPN自动重接，以及系统是否限制后台运行。**节点有延迟、网页仍超时**，先在当前手动组换一个实际节点，再切换Wi-Fi／移动网络比较，按[连接症状与处理](../../README.md#symptom-table)继续判断，不同时更改DNS和代理方式。只有某个应用失败时，再查看“工具”中的绕过配置是否排除了它；保留原选项，只恢复本次误排除的应用。
 
-原来可用、后来多个节点同时失败时，先查看账户、流量与本家公告，核对故障时间及所用网络，再用同一节点比较Wi-Fi与自己的移动网络。
+原来可用、后来多个节点同时失败时，先查看账户、流量与你所用服务商的首页公告，核对故障时间及所用网络，再用同一节点比较Wi-Fi与自己的移动网络。
 
 **系统显示 Surfboard 流量很高，会重复扣套餐吗？** Android 可能把经过 VPN 的各应用流量归到 Surfboard，单看系统统计不能判断套餐扣量，服务用量仍看本人账户。
 
@@ -97,8 +102,6 @@ Surfboard通过Android VPN接管流量，实际转发仍受配置规则和应用
 服务商只提供Clash／Mihomo订阅、没有Surfboard兼容格式时，可以按[Clash Meta for Android下载与配置教程](../cmfa/README.md)使用对应的成品订阅；不要把两种配置文件互换。要给Windows、Mac或Linux电脑使用同一服务，可看[Clash Verge Rev下载与配置教程](../clash-verge-rev/README.md)，从后台另取目标软件的兼容格式，同时使用条件仍按服务的设备与并发限制执行。
 
 需要为其他设备选软件，查看[2026年机场通用客户端汇总与下载教程](../../README.md#choose)，其中按平台提供独立教程入口。
-
-第一次把配置下载、选中并完成目标访问后，以后主要是在配置页维护来源、在代理页更换节点。保留这份可用配置，就不必在每次线路变化时重新安装软件。
 
 <details>
 <summary>来源注释与开发者资料</summary>
@@ -156,7 +159,7 @@ Surfboard通过Android VPN接管流量，实际转发仍受配置规则和应用
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -171,7 +174,7 @@ Surfboard通过Android VPN接管流量，实际转发仍受配置规则和应用
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 

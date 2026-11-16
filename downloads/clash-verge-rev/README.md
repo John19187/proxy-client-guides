@@ -46,7 +46,7 @@ Windows使用Windows 10／11，当前版本不支持Windows 7；Mac要求macOS 1
 
 <a id="import"></a>
 
-## 把订阅链接导入Clash Verge Rev
+## 导入订阅链接或本地YAML配置
 
 订阅链接让Clash Verge Rev下载一份配置，其中可以包含节点、代理组和分流规则。需要复制服务后台的Clash／Mihomo订阅地址，账户首页网址、账号密码和单条节点链接都不能代替它。个人订阅地址通常带凭据，不要把它放进公开截图或求助帖。
 
@@ -58,6 +58,10 @@ Windows使用Windows 10／11，当前版本不支持Windows 7；Mac要求macOS 1
 图中是旧名Clash Verge界面，未显示版本号。上方输入链接后点“导入”，卡片右上角的圆形箭头用于更新订阅。下载后选中配置，再选择节点并开启系统代理。
 
 3. **单击目标订阅卡片主体**启用这份配置，避开刷新按钮。v2.5.10中，当前卡片左侧出现主题色边条，标题也显示主题色。保存了多份订阅时，也用这个操作切换配置；切换会改变后面的节点、代理组和规则。
+
+<a id="local-file"></a>
+
+**只有本地YAML文件：** 打开“订阅 → 新建”，把类型改为“本地”，点击“选择文件”，选中保存的`.yaml`或`.yml`，然后“保存”。列表出现新卡片后，单击卡片主体启用。文件配置不会从订阅URL自动取得新节点，服务调整后需要另取新文件或改用兼容订阅。
 
 **一键导入打开了旧CFW或别的软件**，取消唤起，回Clash Verge Rev手动粘贴链接。**返回401／403或没有生成卡片**，回服务后台检查账户状态、订阅下载开关和个人链接。已有配置仍可用时保留它，不必先删除。
 
@@ -93,8 +97,8 @@ Windows使用Windows 10／11，当前版本不支持Windows 7；Mac要求macOS 1
 
 TUN通过虚拟网卡接收流量，适合处理不跟随系统代理的应用。浏览器已经能用时，可以保留当前系统代理；确有应用接管需要，再设置TUN。
 
-1. Windows在Clash Verge Rev的设置中处理服务安装及所需管理员授权；Mac按其服务安装提示操作。
-2. 记下原来的开关状态，开启TUN，重新尝试原先失败的应用。
+1. 记下原来的开关状态，在“设置”开启“TUN模式”。Windows若弹出“TUN模式需要系统服务”，点“安装服务”，允许本次系统管理员授权。安装后软件会重启内核，并继续开启TUN。
+2. 确认TUN开关已开启，再试原先失败的应用。安装报错时先处理服务错误，不要反复切换开关；Mac按系统弹出的服务与权限请求操作。
 3. 若本次启用后才出现普通网络或局域网故障，关闭本次TUN，恢复先前可用的系统代理状态。
 
 遇到Sidecar安全检查提示，保留错误原文和被拒绝的文件路径，按[开发者Windows说明](https://www.clashverge.dev/faq/windows.html)处理对应安装目录，不要关闭安全防护绕过。服务、UWP应用接管及系统恢复的具体问题，可接着看[Clash Verge Rev系统代理与TUN专题](../../clash-verge-rev-network.md)。
@@ -120,15 +124,13 @@ TUN通过虚拟网卡接收流量，适合处理不跟随系统代理的应用�
 1. 打开“设置 → Verge高级设置 → 备份设置”。
 2. 在“手动备份”的“本地备份”中点击“备份”。看到“本地备份创建成功”后，可点“查看记录”找到这份备份。
 3. 关闭本次启用的系统代理和TUN，从托盘完整退出Clash Verge Rev。
-4. 从[官方发行页](https://github.com/clash-verge-rev/clash-verge-rev/releases/latest)下载适配的正式版并安装，先用服务默认配置恢复访问，再迁回确实需要的本地规则、DNS或覆写。
+4. 从[官方发行页](https://github.com/clash-verge-rev/clash-verge-rev/releases/latest)下载适配的正式版并安装，先使用原配置。若升级后才失败，再用服务默认配置对照，按具体错误处理本地规则、DNS或覆写。
 
 需要回退时，保留相配的旧程序和升级前数据，不能只拿一个旧EXE覆盖新目录。从[旧Clash Verge](../old-clash-verge/README.md)或[CFW迁移](../cfw/README.md)过来，也先重新导入兼容订阅；相近名称或相同内核不代表可以覆盖数据目录。
 
 要把已有订阅换到另一款桌面客户端，可看[Clash Party下载与配置教程](../clash-party/README.md)，在目标软件里重新导入。为另一台设备选客户端时，查看[2026年机场通用客户端汇总与下载教程](../../README.md)，其中按平台给出软件和独立教程入口。
 
 关闭主窗口后，Clash Verge Rev可能仍在托盘运行。完全停用时，先关闭本次系统代理和TUN，再从托盘退出。若异常退出后普通网页无法访问，重新启动程序并关闭这两项；程序无法启动时，按[当前系统的代理恢复步骤](../../README.md#restore-and-report)撤回本次修改，保留原有公司代理设置。
-
-完成配置后，日常在“代理”里换节点，服务调整内容时在“订阅”里刷新。需要的网站和应用已经可用，就可以保留当前配置继续使用。
 
 <details>
 <summary>官方资料与图片来源</summary>
@@ -186,7 +188,7 @@ TUN通过虚拟网卡接收流量，适合处理不跟随系统代理的应用�
 | [OpenClash](../openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](../passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](../shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](../provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](../provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](../cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](../cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](../clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
@@ -201,7 +203,7 @@ TUN通过虚拟网卡接收流量，适合处理不跟随系统代理的应用�
 |---|---|
 | [VPN推荐与使用方式](https://github.com/John19187/The-40-Best-VPNs) | 比较服务的平台、接入方式与客户端 |
 | [机场推荐与套餐比较](https://github.com/John19187/ji-chang-tui-jian) | 比较月付、按量与套餐条件 |
-| **2026年机场通用客户端汇总与下载教程（本文档仓）** | 按设备选软件并进入具体教程 |
+| [2026年机场通用客户端汇总与下载教程](../../README.md#choose) | 按设备选软件并进入具体教程 |
 | [机场与代理工具科普指南](https://github.com/John19187/ssr-v2ray-trojan-clash-guide) | 理解机场、协议、客户端、订阅与线路 |
 | [免费节点与订阅资源](https://github.com/John19187/v2ray-SSR-Clash-Verge-Shadowrocke) | 查看公开资源与导入说明，不承诺持续可用 |
 
