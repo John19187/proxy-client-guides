@@ -1,4 +1,4 @@
-# 2026年机场通用客户端汇总与下载教程：电脑、Android、iPhone和路由器
+# 2026年机场通用客户端汇总与下载教程：Windows、macOS、Linux、Android、iPhone和路由器
 
 <a id="2026年机场通用客户端汇总与下载教程电脑androidiphone和路由器"></a>
 
